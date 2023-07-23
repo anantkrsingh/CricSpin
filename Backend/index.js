@@ -1,0 +1,118 @@
+const express = require("express");
+const axios = require("axios");
+
+const app = express();
+app.use(require("cors")());
+
+app.use("/LiveLine", (req, res) => {
+  axios
+    .get("http://cricpro.cricnet.co.in/api/values/LiveLine")
+    .then((data) => {
+      console.log(data.data);
+      res.status(200).json(data.data);
+    })
+    .catch(() => {});
+});
+
+app.get("/UpcomingMatches", (req, res) => {
+  axios
+    .get("http://cricpro.cricnet.co.in/api/values/upcomingMatches")
+    .then((data) => {
+      console.log(data.data);
+      res.status(200).json(data.data);
+    })
+    .catch(() => {});
+});
+
+app.get("/Result", (req, res) => {
+  const matchId = req.query.MatchId;
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/MatchResults", {
+      "MatchId": matchId,
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
+app.get("/Series", (req, res) => {
+  const matchId = req.query.MatchId;
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/LiveSeries", {
+      "MatchId": matchId,
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
+
+app.post("/Players", (req, res) => {
+  const matchId = req.query.MatchId;
+  console.log(matchId);
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/GetAllPlayers", {
+      "MatchId": matchId,
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data.Playerslist);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
+app.post("/Live", (req, res) => {
+  const matchId = req.query.MatchId;
+  console.log(matchId);
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/LiveLine_Match", {
+      "MatchId": matchId,
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
+
+app.get("/SeriesMatches", (req, res) => {
+  const seriesId = req.query.seriesId;
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/SeriesMatches", {
+      "seriesid": seriesId,
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
+
+
+
+
+
+app.listen("3000", () => {
+  console.log("Started");
+});
