@@ -1,23 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const LiveMatches = ({ match }) => {
+export const FinishedMatches = ({ match }) => {
     let jsonData = null;
     try {
         if (match.jsondata === "") {
             match.jsondata = "{}";
         }
-        // Parse the JSON string in "jsondata" key to access "jsonData" directly
-        jsonData = JSON.parse(match.jsondata).jsondata;
-
-        // Access the "wicketA" value directly from "jsonData"
-        const wicketA = jsonData?.wicketA;
-
-        // Print or do anything else with the "wicketA" value
-        console.log(wicketA);
+        const jsondata = match.jsondata.replaceAll("/", "");
+        jsonData = JSON.parse(jsondata)?.jsondata;
     } catch (error) {
         console.error('Error parsing JSON:', error.message);
     }
+    const item = match
     return (
         // <>
         //     <Link to={{
@@ -55,32 +50,36 @@ export const LiveMatches = ({ match }) => {
         // </>
 
         <>
-
             <Link to={{
                 pathname: `/results`,
                 search: `matchId=${match.MatchId}&seriesId=${match.seriesid}`
-            }} className='w-full rounded-lg overflow-hidden  bg-white flex flex-col'>
-                <div className='flex justify-between items-center'>
-                    <p className='p-2 euclidMedium'>{match.Title}</p>
-                    <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>
+            }} className='w-auto bg-white mt-6 p-2 ps-4 rounded-xl justify-between flex flex-col'>
+                <div className='text-black text-lg euclid'>
+                    {item.Title}
                 </div>
+                <div className='flex w-full justify-between'>
+                    <div className='flex flex-col'>
+                        <div className='flex flex-row items-center'>
+                            <img src={item.ImgeURL + item.TeamAImage} className='rounded-full border-4  w-[48px] h-[48px]' alt="" />
+                            <h4 className=' euclid font-bold ms-4 text-xl'>{item.TeamA}</h4>
+                        </div>
+                        <div className='flex flex-row items-center'>
+                            <img src={item.ImgeURL + item.TeamBImage} className='rounded-full border-4  w-[48px] h-[48px]' alt="" />
+                            <h4 className='euclid font-bold ms-4 text-xl'>{item.TeamB}</h4>
+                        </div>
+                    </div>
+                    <div className='flex justify-between items-center'>
+                        <div className='w-[1px] h-full bg-gray-400   m-2'>
 
-                <div className='w-full flex flex-row m-2 euclidMedium'>
-                    <div className='flex flex-col p-4 justify-start items-start'>
-                        <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={match.ImgeURL + match.TeamAImage} className='teamLogo' alt="" />
-                        <h4 className=' font-bold text-start text-xl'>{match.TeamA}</h4>
-                        <h4 className='font-bold flex flex-row'>{jsonData?.wicketA}  <p className='text-gray-400 ms-1'>({jsonData?.oversA})</p> </h4>
-                    </div>
-                    <div className='w-[10%] h-[100%] flex justify-center self-center'>
-                        <h3 className='text-red-500 font-bold'>VS</h3>
-                    </div>
-                    <div className='flex flex-col p-4 justify-end items-end'>
-                        <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={match.ImgeURL + match.TeamBImage} className='teamLogo' alt="" />
-                        <h4 className=' font-bold text-right text-xl'>{match.TeamB}</h4>
-                        <h4 className='font-bold flex'>{jsonData?.wicketB}</h4>
+                        </div>
+                        <div className='ms-4 me-4 font-[Rajdhani] font-bold text-[#a50000]'>
+                            Finished
+                        </div>
                     </div>
                 </div>
-                <p className='p-2 euclidMedium text-start'>{match.Matchtime}</p>
+                <div className='text-[#9d6003] euclidMedium text-lg mt-2'>
+                    {item.Result}
+                </div>
             </Link>
         </>
     )

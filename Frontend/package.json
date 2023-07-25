@@ -16,7 +16,9 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^0.0.0-experimental-e91142dd6-20230705",
     "react-dom": "^0.0.0-experimental-e91142dd6-20230705",
+    "react-icons": "^4.10.1",
     "react-query": "^3.39.3",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.14.1"
   },
   "devDependencies": {

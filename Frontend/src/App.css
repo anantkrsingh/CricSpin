@@ -1,6 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "EuclidRegular";   /*Can be any text*/
+    src: local("EuclidRegular"),
+      url("./assets/Fonts/EuclidRegular.ttf") format("truetype");
+  }
+
+  @font-face {
+    font-family: "EuclidMedium";   /*Can be any text*/
+    src: local("EuclidMedium"),
+      url("./assets/Fonts/EuclidMedium.ttf") format("truetype");
+  }
 .container {
     -ms-overflow-style: none;  
     scrollbar-width: none;  
@@ -8,5 +20,14 @@
 .container::-webkit-scrollbar { 
     display: none;  
 }
-
+.euclid{
+    font-family: "EuclidRegular"; 
+}
+.euclidMedium{
+    font-family: "EuclidRegular"; 
+}
+.teamLogo{
+    width: fit-content;
+    
+}
 

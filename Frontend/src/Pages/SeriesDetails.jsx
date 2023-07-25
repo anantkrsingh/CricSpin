@@ -2,6 +2,7 @@ import React from 'react'
 import {use,cache} from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { LiveMatches } from '../Comps/LiveMatches'
+import { FinishedMatches } from '../Comps/FinishedMatches'
 
 export const SeriesDetails = () => {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -13,7 +14,7 @@ export const SeriesDetails = () => {
             {
             matches.map((item)=>{
                 return(
-                    <LiveMatches match={item}/>
+                    <FinishedMatches match={item}/>
                 )
             })
         }

@@ -1,14 +1,20 @@
 import React from 'react'
 import { use, cache } from 'react'
 import { Link } from 'react-router-dom'
+import Logo from '../assets/logo.png'
+
 
 
 export const Series = () => {
     const series = use(getSeries())
     return (
         <div
-            className='w-full top-16 font-[Roboto] p-2  relative'
+            className='w-full top-8 pb-10 font-[Roboto] p-2  relative'
         >
+            <div className='w-full flex self-center justify-center items-center'>
+                <img src={Logo} className='w-[60px]  ' alt="" />
+            </div>
+            <div className='mb-10'>
             {
                 series.map((item) => {
                     return (
@@ -27,6 +33,8 @@ export const Series = () => {
                     )
                 })
             }
+            </div>
+            
 
         </div>
     )
