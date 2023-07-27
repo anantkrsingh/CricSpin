@@ -5,7 +5,7 @@ import { UpcominMatch } from '../Comps/UpcominMatch'
 import { LiveMatches } from '../Comps/LiveMatches'
 import Logo from '../assets/logo.png'
 import { FinishedMatches } from '../Comps/FinishedMatches'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 

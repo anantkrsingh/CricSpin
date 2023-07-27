@@ -18,10 +18,11 @@ jobs:
         - run: |
             cd Frontend
             npm install
+            npm add react@experimental react-dom@experimental
+            npm install
             npm run build
             cd ..
             cd Backend
             npm install
             npm start  & npx wait-on http://localhost:8001
-            
             sudo service nginx restart
