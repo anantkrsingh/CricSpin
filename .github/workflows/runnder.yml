@@ -17,10 +17,11 @@ jobs:
             node-version: ${{ matrix.node-version }}
         - run: |
             cd Frontend
+            npm install
             npm run build 
             cd ..
             cd Backend
-            npm i
+            npm install
             npm start  & npx wait-on http://localhost:8001
             
             sudo service nginx restart
