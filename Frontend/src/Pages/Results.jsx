@@ -21,7 +21,7 @@ export const Results = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://api.cricspin.live/SeriesMatches?seriesId=${seriesId}`);
+      const response = await fetch(`http://api.cricspin.live/SeriesMatches?seriesId=${seriesId}`);
       const data = await response.json();
       const matchId = parseInt(matchID);
       const filteredMatches = data.filter(it => it.MatchId === matchId);

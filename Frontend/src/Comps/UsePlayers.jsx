@@ -7,7 +7,7 @@ const usePlayers = (matchID) => {
   useEffect(() => {
     const fetchPlayers = async () => {
       try {
-        const response = await fetch("https://api.cricspin.live/Players/?MatchId=" + matchID, {
+        const response = await fetch("http://api.cricspin.live/Players/?MatchId=" + matchID, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
