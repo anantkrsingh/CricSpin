@@ -11,9 +11,7 @@
   },
   "dependencies": {
     "@flaticon/flaticon-uicons": "^2.2.0",
-    "@fortawesome/fontawesome-svg-core": "^6.4.0",
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
+
     "react": "^0.0.0-experimental-e91142dd6-20230705",
     "react-dom": "^0.0.0-experimental-e91142dd6-20230705",
     "react-icons": "^4.10.1",
