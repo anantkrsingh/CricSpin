@@ -17,7 +17,7 @@ export const SeriesDetails = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:8001/SeriesMatches?seriesId=${id}`);
+      const response = await fetch(`http://64.227.148.23:8001/SeriesMatches?seriesId=${id}`);
       const data = await response.json();
       setMatches(data);
       setLoading(false); // Set loading to false once data is fetched
