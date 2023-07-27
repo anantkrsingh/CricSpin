@@ -7,13 +7,8 @@ export const LiveMatches = ({ match }) => {
         if (match.jsondata === "") {
             match.jsondata = "{}";
         }
-        // Parse the JSON string in "jsondata" key to access "jsonData" directly
         jsonData = JSON.parse(match.jsondata).jsondata;
-
-        // Access the "wicketA" value directly from "jsonData"
         const wicketA = jsonData?.wicketA;
-
-        // Print or do anything else with the "wicketA" value
         console.log(wicketA);
     } catch (error) {
         console.error('Error parsing JSON:', error.message);

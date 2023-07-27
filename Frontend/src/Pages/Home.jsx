@@ -15,9 +15,14 @@ export default function Home() {
 
   return (
     <div className='w-full top-8 font-[Roboto]  relative'>
-      <div className='w-full flex self-center justify-center items-center'>
+      <div className='w-full flex self-center text-white justify-center items-center'>
+        <div className='p-4' >Cricspin</div>
         <img src={Logo} className='w-[60px]  ' alt="" />
+        <div className='p-4 font-bold euclidMedium'>
+          LiveLine
+        </div>
       </div>
+      <div className='w-full h-[1px] bg-gray-300 mt-4 mb-4'></div>
       <h4 className='text-2xl text-white m-2'>Live Matches</h4>
       <Carousel>
 

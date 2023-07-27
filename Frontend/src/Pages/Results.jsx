@@ -9,11 +9,11 @@ import { Info } from '../Comps/Info';
 
 export const Results = () => {
     const navigateTo = useNavigate();
-    const [currentItem, setCurrentItem] = useState("Scorecard")
+    const [currentItem, setCurrentItem] = useState("Live")
     const [searchParams, setSearchParams] = useSearchParams();
     const matchID = searchParams.get("matchId");
     const seriesId = searchParams.get("seriesId");
-    const myMatch = use(getMySeriesMatch(matchID,seriesId));
+    const myMatch = use(getMySeriesMatch(matchID, seriesId));
     const resultNavs = [
         "Info", "Live", "Scorecard"
     ]
@@ -24,8 +24,6 @@ export const Results = () => {
             default: return (<Info match={myMatch} />)
         }
     }
-
-
     return (
         <>
             <div class="max-w-[375px] flex left-[50%]  m-auto overflow-hidden">
@@ -79,7 +77,7 @@ export const Results = () => {
 // })
 
 
-const getMySeriesMatch= cache(async (matchID,seriesId) =>{
+const getMySeriesMatch = cache(async (matchID, seriesId) => {
     const response = await fetch(`http://localhost:3000/SeriesMatches?seriesId=${seriesId}`)
     const data = await response.json()
     const matchId = parseInt(matchID)

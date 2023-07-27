@@ -1,65 +1,175 @@
 import React from 'react'
 import { cache, use } from 'react'
+import { BsArrowLeft } from 'react-icons/bs'
+
 
 export const Live = ({ matchID }) => {
   const match = use(getLive(matchID))
   if (!match) {
     return null;
   }
-  const jsondata = match.jsondata.replace("/", "")
-  let jsonData = null;
 
+  let jsonData = null;
+  let jsonRuns = null;
+  const sanitizedJsonRuns = match.jsonruns.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
+  const sanitizedJsonData = match.jsondata.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
   try {
-    jsonData = JSON.parse(jsondata);
+    // jsonRuns = JSON.parse(match.jsonruns).jsonruns;
+    jsonData = JSON.parse(sanitizedJsonData).jsondata;
   } catch (error) {
     console.error("Error parsing JSON data:", error);
     return null;
   }
 
-  const data = jsonData?.jsondata;
+  try {
+    jsonRuns = JSON.parse(sanitizedJsonRuns).jsonruns;
+    // jsonData = JSON.parse(match.jsondata).jsondata;
+  } catch (error) {
+    console.error("Error parsing JSON data:", error);
+    return null;
+  }
+
+
+  const data = jsonData
+
+  console.log(data);
+
+  const title = data.title;
+  const CRRRegex = /C\.RR:\s*(\d+(\.\d+)?)/i;
+  const RRRRegex = /R\.RR:\s*(\d+(\.\d+)?)/i;
+
+  const CRRMatch = title.match(CRRRegex);
+  const RRRMatch = title.match(RRRRegex);
+
+  const CRR = CRRMatch ? CRRMatch[1] : "N/A";
+  const RRR = RRRMatch ? RRRMatch[1] : "N/A";
 
   if (!data) {
     return null;
   }
 
+  const last6Balls = data.Last6Balls.split("-")
+  let substring = jsonData.oversB.substring(0, jsonData.oversB.indexOf("|"));
+  let substring2 = jsonData.oversB.substring(jsonData.oversB.indexOf("|") + 1);
+
+
+  let nonstrikerruns;
+  let strikerruns;
+  let nonstrikerballs;
+  let strikerballs;
+
+  if (substring != null && substring.length > 0) {
+    let split2 = substring.split(",");
+    if (split2.length > 0) {
+      nonstrikerruns = split2[0];
+      strikerruns = split2[1];
+    }
+  }
+
+  if (substring2 != null && substring2.length > 0) {
+    let split2 = substring2.split(",");
+    if (split2.length > 0) {
+      nonstrikerballs = split2[0];
+      strikerballs = split2[1];
+    }
+  }
+
+  let sr = parseInt((strikerruns / strikerballs) * 100);
+
+  let nsr = parseInt((nonstrikerruns / nonstrikerballs) * 100);
+
+
+
+
   return (
     <div className='flex w-full '>
-      <div className='  w-full flex flex-col'>
-        <table className='w-full bg-gray-200 rounded-xl shadow-lg '>
-          <thead>
+      <div className='w-full flex flex-col'>
+        <div className='w-full p-2 items-center euclid flex justify-between bg-white rounded-md'>
+          <div className=''>Favourite</div>
+          <div className='flex items-center font-bold  '><p> {jsonRuns.fav}</p>
+            <p className='px-2 py-1 mx-2 bg-red-100 text-red-800 rounded-lg'>{jsonRuns.rateA}</p>
+            <p className='px-2 py-1 bg-green-100  text-green-800 rounded-lg'>{jsonRuns.rateB}</p>
+          </div>
+        </div>
+        <div className='w-full flex-row euclid font-bold bg-white rounded-md mt-4 flex p-2'>
+          <div className='flex flex-col items-center'>
+            <p>Session </p>
+            <div className='flex'>
+              <p className='px-2 py-1 mx-2 bg-red-100 text-red-800 rounded-lg'>{jsonRuns.sessionA}</p>
+              <p className='px-2 py-1 mx-2 bg-green-100  text-green-800 rounded-lg'>{jsonRuns.sessionB}</p>
+            </div>
+
+          </div>
+          <div className='w-full flex items-center flex-col'>
+            Over
+            <p className='px-2 py-1 mx-2 bg-green-100  text-green-800 rounded-lg'>{jsonRuns.sessionOver}</p> </div>
+          <div className='flex flex-col bg-white rounded-md'>
+            <p className='text-center'>Run x Ball</p>
+            <div className='flex'>
+              <p className='px-2 py-1 mx-2 bg-red-100 text-red-800 rounded-lg'>{jsonRuns.runxa}</p>
+              <p className='px-2 py-1 mx-2 bg-green-100  text-green-800 rounded-lg'>{jsonRuns.runxb}</p>
+            </div>
+
+          </div>
+        </div>
+        <table className='w-full bg-white rounded-xl  shadow-lg mt-2'>
+
+          <thead className='border-b-2 border-gray-700  border-collapse'>
             <tr className='p-2'>
               <th className='text-start  p-2'>Batsmen</th>
-              <th className='text-right  p-2'>R(B)</th>
+              <th className='text-right  p-2'>R</th>
+              <th className='text-right  p-2'>B</th>
               <th className='text-right  p-2'>4s</th>
               <th className='text-right  p-2'>6s</th>
+              <th className='text-right  p-2'>SR</th>
             </tr>
           </thead>
-          <tbody>
+
+          <tbody className='border-b-2 border-gray-700'>
             <tr>
               <td className='p-2 text-start font-bold text-blue-950'>{data.batsman.split("|")[0].trim()} </td>
-              <td className='text-right text-blue-800 font-bold  p-2'>{data.oversB.split("|")[0].trim().split(",")[1].trim()} , {data.oversB.split("|")[1].trim().split(",")[1].trim()}</td>
+              <td className='text-right text-blue-800 font-bold  p-2'>{data.oversB.split("|")[0].trim().split(",")[1].trim()}</td>
+              <td className='text-right text-blue-800 font-bold  p-2'>{data.oversB.split("|")[1].trim().split(",")[1].trim()}</td>
               <td className='text-right p-2'>{data.s4}</td>
               <td className='text-right p-2'>{data.s6}</td>
+              <td className='text-right p-2'>{sr}</td>
             </tr>
             <tr>
               <td className='p-2 text-start font-bold text-blue-950'>{data.batsman.split("|")[1].trim()}</td>
               <td className='text-right text-blue-800 font-bold p-2'>
-                {data.oversB.split("|")[0].trim().split(",")[0].trim()} ,
-                {data.oversB.split("|")[1].trim().split(",")[0].trim()} </td>
+                {data.oversB.split("|")[0].trim().split(",")[0].trim()}
+              </td>
+              <td className='text-right text-blue-800 font-bold p-2'>
+                {data.oversB.split("|")[1].trim().split(",")[0].trim()}
+              </td>
               <td className='text-right p-2'>{data.ns4}</td>
               <td className='text-right p-2'>{data.ns6}</td>
+              <td className='text-right p-2'>{nsr}</td>
             </tr>
           </tbody>
+          <div className='flex p-2'> <h6>Bowler:</h6> <p className='flex font-bold w-full  text-center'>  {data.bowler}</p> </div>
         </table>
-        <div className='p-2 mt-2 mb-2 bg-white rounded-lg'> <h6>Bowler:</h6> <p>{data.bowler}</p> </div>
-        <div>
-          <div className='bg-white p-2 rounded-t-xl w-max'> Last 6 Balls </div>
 
-          <div className='w-full bg-white p-4 justify-center items-center rounded-b-xl text-center'>
-
-            {data.Last6Balls}
-          </div>
+        <div className='flex euclid flex-row mt-4 bg-white rounded-md p-1 items-center' >
+          Last 6 Balls
+          {last6Balls.map((item) => {
+            return (
+              <div className='bg-gray-200 w-fit rounded-full px-3 py-2 m-1'>{item}</div>
+            )
+          })}
         </div>
+        <div className='w-full euclid mt-4 p-2 flex bg-white rounded-md justify-between'>
+          <p>Current Run Rate {CRR}</p>
+          <p>R.R.R: {RRR}</p>
+        </div>
+        <div className='w-full euclid mt-4 bg-white rounded-md'>
+          <p className='border-b-2 p-2 border-gray-700'>Summary</p>
+          <p className='p-2'>
+
+            {jsonData.title}
+          </p>
+        </div>
+
       </div>
     </div>
   )
