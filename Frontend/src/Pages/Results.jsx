@@ -48,7 +48,7 @@ export const Results = () => {
   return (
     <>
       <div className="max-w-[375px] flex left-[50%]  m-auto overflow-hidden">
-        <div className="flex z-0 h-screen p-4  flex-col w-[375px]  bg-main pl-4 pr-4 m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
+        <div className="flex z-0 h-screen p-4  flex-col w-[375px]  bg pl-4 pr-4 m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
           <div className="mb-8">
             <p className="text-sm text-slate-200 flex items-center">
               <BsArrowLeft onClick={() => navigateTo(-1)} size={28} />
