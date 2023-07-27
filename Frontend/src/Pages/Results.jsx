@@ -78,7 +78,7 @@ export const Results = () => {
 
 
 const getMySeriesMatch = cache(async (matchID, seriesId) => {
-    const response = await fetch(`http://localhost:3000/SeriesMatches?seriesId=${seriesId}`)
+    const response = await fetch(`http://localhost:8001/SeriesMatches?seriesId=${seriesId}`)
     const data = await response.json()
     const matchId = parseInt(matchID)
     const myMatch = await data.filter(it => it.MatchId === matchId)

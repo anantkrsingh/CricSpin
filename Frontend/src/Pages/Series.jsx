@@ -41,7 +41,7 @@ export const Series = () => {
 }
 
 const getSeries = cache(async () => {
-    const response = await fetch("http://localhost:3000/Series")
+    const response = await fetch("http://localhost:8001/Series")
     const data = await response.json()
     return data;
 })

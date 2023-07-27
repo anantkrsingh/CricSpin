@@ -53,13 +53,13 @@ export default function Home() {
 
 
 const getUpcomingMatches = cache(async () => {
-  const response = await fetch("http://localhost:3000/UpcomingMatches")
+  const response = await fetch("http://localhost:8001/UpcomingMatches")
   const data = await response.json()
   return data;
 })
 
 const getLiveMatches = cache(async () => {
-  const response = await fetch("http://localhost:3000/LiveLine")
+  const response = await fetch("http://localhost:8001/LiveLine")
   const data = await response.json()
   return data;
 })

@@ -81,7 +81,7 @@ export const ScoreCard = ({ matchID }) => {
 
 
 const getPlayers = cache(async (matchID) => {
-    const response = await fetch("http://localhost:3000/Players/?MatchId=" + matchID, {
+    const response = await fetch("http://localhost:8001/Players/?MatchId=" + matchID, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

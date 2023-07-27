@@ -176,7 +176,7 @@ export const Live = ({ matchID }) => {
 }
 
 const getLive = cache(async (matchID) => {
-  const response = await fetch("http://localhost:3000/Live/?MatchId=" + matchID, {
+  const response = await fetch("http://localhost:8001/Live/?MatchId=" + matchID, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
