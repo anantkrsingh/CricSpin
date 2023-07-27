@@ -18,7 +18,7 @@ jobs:
         - run: |
             cd Backend
             npm i
-            npm start
+            npm start  & npx wait-on http://localhost:8001
             cd ..
             cd Frontend
             npm i
