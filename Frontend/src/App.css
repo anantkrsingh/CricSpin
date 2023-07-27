@@ -30,4 +30,7 @@
     width: fit-content;
     
 }
+.bg{
+    background-image: url('./src/assets/bg.png');
+}
 

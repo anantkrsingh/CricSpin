@@ -18,12 +18,12 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const upcomingResponse = await fetch("http://64.227.148.23:8001/UpcomingMatches");
+      const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
       const upcomingData = await upcomingResponse.json();
       console.log(upcomingData.AllMatch);
       setUpcomingMatches(upcomingData.AllMatch);
 
-      const liveResponse = await fetch("http://64.227.148.23:8001/LiveLine");
+      const liveResponse = await fetch("https://api.cricspin.live/LiveLine");
       const liveData = await liveResponse.json();
       setLiveMatches(liveData);
       setLoading(false);

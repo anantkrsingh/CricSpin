@@ -17,7 +17,7 @@ export const SeriesDetails = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://64.227.148.23:8001/SeriesMatches?seriesId=${id}`);
+      const response = await fetch(`https://api.cricspin.live/SeriesMatches?seriesId=${id}`);
       const data = await response.json();
       setMatches(data);
       setLoading(false); // Set loading to false once data is fetched
@@ -29,7 +29,7 @@ export const SeriesDetails = () => {
 
   return (
     <>
-      <div className="max-w-[375px] md:max-w-[400px] bg-main h-screen left-[50%]  m-auto p-4 overflow-y-auto">
+      <div className="max-w-[375px] md:max-w-[400px] bg h-screen left-[50%]  m-auto p-4 overflow-y-auto">
         <BsArrowLeft className='text-white' onClick={() => navigateTo(-1)} size={28} />
         {loading ? (
           <p>Loading...</p> // Show a loading message or spinner while fetching data

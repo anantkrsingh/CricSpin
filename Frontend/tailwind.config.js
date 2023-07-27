@@ -6,9 +6,7 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage:{
-        "main" : "url('./src/assets/bg.png')"
-      }
+      
     },
     screens: {
       'md': [

@@ -13,7 +13,7 @@ export const Series = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://64.227.148.23:8001/Series");
+      const response = await fetch("https://api.cricspin.live/Series");
       const data = await response.json();
       setSeries(data);
       setLoading(false); // Set loading to false once data is fetched
@@ -24,7 +24,7 @@ export const Series = () => {
   };
 
   return (
-    <div className='w-full top-8 pb-10 font-[Roboto] p-2  relative'>
+    <div className='w-full top-8 pb-10 font-[Roboto] p-2 relative'>
       <div className='w-full flex self-center justify-center items-center'>
         <img src={Logo} className='w-[60px]' alt="" />
       </div>
