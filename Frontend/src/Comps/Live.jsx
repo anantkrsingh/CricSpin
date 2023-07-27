@@ -1,20 +1,42 @@
-import React from 'react'
-import { cache, use } from 'react'
-import { BsArrowLeft } from 'react-icons/bs'
+import React, { useEffect, useState } from 'react';
 
 
 export const Live = ({ matchID }) => {
-  const match = use(getLive(matchID))
-  if (!match) {
-    return null;
+  const [match, setMatch] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("http://localhost:8001/Live/?MatchId=" + matchID, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+      const data = await response.json();
+      setMatch(data[0]);
+      setLoading(false); // Set loading to false once data is fetched
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false); // Set loading to false if there's an error
+    }
+  };
+
+  if (loading || !match) {
+    return <p>Loading...</p>;
   }
+
+  const sanitizedJsonRuns = match.jsonruns.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
+  const sanitizedJsonData = match.jsondata.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
 
   let jsonData = null;
   let jsonRuns = null;
-  const sanitizedJsonRuns = match.jsonruns.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
-  const sanitizedJsonData = match.jsondata.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
+
   try {
-    // jsonRuns = JSON.parse(match.jsonruns).jsonruns;
     jsonData = JSON.parse(sanitizedJsonData).jsondata;
   } catch (error) {
     console.error("Error parsing JSON data:", error);
@@ -23,12 +45,10 @@ export const Live = ({ matchID }) => {
 
   try {
     jsonRuns = JSON.parse(sanitizedJsonRuns).jsonruns;
-    // jsonData = JSON.parse(match.jsondata).jsondata;
   } catch (error) {
     console.error("Error parsing JSON data:", error);
     return null;
   }
-
 
   const data = jsonData
 
@@ -77,6 +97,7 @@ export const Live = ({ matchID }) => {
   let sr = parseInt((strikerruns / strikerballs) * 100);
 
   let nsr = parseInt((nonstrikerruns / nonstrikerballs) * 100);
+
 
 
 
@@ -174,19 +195,5 @@ export const Live = ({ matchID }) => {
     </div>
   )
 }
-
-const getLive = cache(async (matchID) => {
-  const response = await fetch("http://localhost:8001/Live/?MatchId=" + matchID, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-  })
-  console.log(response);
-  const data = await response.json()
-  console.log(data);
-  return data[0];
-})
-
 
 
