@@ -6,6 +6,8 @@ app.use(require("cors")());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://64.227.148.23');
+  res.header('Access-Control-Allow-Origin', 'https://cricspin.live');
+  res.header('Access-Control-Allow-Origin', 'http://cricspin.live');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
