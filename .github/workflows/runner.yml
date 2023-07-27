@@ -18,8 +18,6 @@ jobs:
         - run: |
             cd Frontend
             npm install
-            npm add react@experimental react-dom@experimental
-            npm install
             npm run build
             cd ..
             cd Backend

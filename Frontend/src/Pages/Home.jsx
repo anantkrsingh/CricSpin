@@ -1,17 +1,37 @@
-import React from 'react'
-
-import { use, cache } from 'react'
-import { UpcominMatch } from '../Comps/UpcominMatch'
-import { LiveMatches } from '../Comps/LiveMatches'
-import Logo from '../assets/logo.png'
-import { FinishedMatches } from '../Comps/FinishedMatches'
+import React, { useState, useEffect } from 'react';
+import { use, cache } from 'react';
+import { UpcominMatch } from '../Comps/UpcominMatch';
+import { LiveMatches } from '../Comps/LiveMatches';
+import Logo from '../assets/logo.png';
+import { FinishedMatches } from '../Comps/FinishedMatches';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-
 export default function Home() {
-  const UpcomingMatches = use(getUpcomingMatches())
-  const LiveMatchs = use(getLiveMatches());
+  const [upcomingMatches, setUpcomingMatches] = useState([]);
+  const [liveMatches, setLiveMatches] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const upcomingResponse = await fetch("http://localhost:8001/UpcomingMatches");
+      const upcomingData = await upcomingResponse.json();
+      console.log(upcomingData.AllMatch);
+      setUpcomingMatches(upcomingData.AllMatch);
+
+      const liveResponse = await fetch("http://localhost:8001/LiveLine");
+      const liveData = await liveResponse.json();
+      setLiveMatches(liveData);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
 
   return (
     <div className='w-full top-8 font-[Roboto]  relative'>
@@ -24,45 +44,27 @@ export default function Home() {
       </div>
       <div className='w-full h-[1px] bg-gray-300 mt-4 mb-4'></div>
       <h4 className='text-2xl text-white m-2'>Live Matches</h4>
-      <Carousel>
-
       {
-        LiveMatchs.map((item) => {
-          return (
-             <LiveMatches match= { item}/>
-           
-            
-          )
-        })
+        loading ? (
+          <p>Loading...</p> // Show a loading message or spinner while fetching data
+        ) : (
+          <Carousel>
+            {liveMatches.map((item) => (
+              <LiveMatches match={item} key={item.id} />
+            ))}
+          </Carousel>
+        )
       }
-       </Carousel> 
       <h4 className='text-2xl text-white m-2'>Upcoming Matches</h4>
       {
-        UpcomingMatches.AllMatch.map((item) => {
-          return (
-            <UpcominMatch item={item} />
-          )
-        })
+        loading ? (
+          <p>Loading...</p> // Show a loading message or spinner while fetching data
+        ) : (
+          upcomingMatches.map((item) => (
+            <UpcominMatch item={item} key={item.id} />
+          ))
+        )
       }
-
-
     </div>
-  )
+  );
 }
-
-
-
-const getUpcomingMatches = cache(async () => {
-  const response = await fetch("http://localhost:8001/UpcomingMatches")
-  const data = await response.json()
-  return data;
-})
-
-const getLiveMatches = cache(async () => {
-  const response = await fetch("http://localhost:8001/LiveLine")
-  const data = await response.json()
-  return data;
-})
-
-
-
