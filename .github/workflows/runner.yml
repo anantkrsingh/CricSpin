@@ -18,7 +18,7 @@ jobs:
         - run: |
             cd Frontend
             npm install
-            npm start
+            npm run build
             cd ..
             cd Backend
             npm install
