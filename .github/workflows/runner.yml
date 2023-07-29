@@ -22,5 +22,5 @@ jobs:
             cd ..
             cd Backend
             npm install
-            npm start  & npx wait-on http://localhost:8001
+            pm2 start npm --name "CricSpin" -- start
             sudo service nginx restart
