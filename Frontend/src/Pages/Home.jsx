@@ -48,7 +48,7 @@ export default function Home() {
         loading ? (
           <p>Loading...</p> // Show a loading message or spinner while fetching data
         ) : (
-          <Carousel>
+          <Carousel autoPlay interval={"5000"} transitionTime={"5000"} showStatus={false} showIndicators={false}>
             {liveMatches.map((item) => (
               <LiveMatches match={item} key={item.id} />
             ))}

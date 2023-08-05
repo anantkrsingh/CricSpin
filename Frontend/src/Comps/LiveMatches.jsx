@@ -54,22 +54,22 @@ export const LiveMatches = ({ match }) => {
             <Link to={{
                 pathname: `/results`,
                 search: `matchId=${match.MatchId}&seriesId=${match.seriesid}`
-            }} className='w-full rounded-lg overflow-hidden  bg-white flex flex-col'>
-                <div className='flex justify-between items-center'>
-                    <p className='p-2 euclidMedium'>{match.Title}</p>
+            }} className='w-full rounded-2xl overflow-hidden  bg-white flex flex-col'>
+                <div className='flex justify-between'>
+                    <p className='p-2 text-sm euclidMedium'>{match.Title}</p>
                     <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>
                 </div>
 
-                <div className='w-full flex flex-row m-2 euclidMedium'>
+                <div className='w-full flex flex-row euclidMedium'>
                     <div className='flex flex-col p-4 justify-start items-start'>
                         <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={match.ImgeURL + match.TeamAImage} className='teamLogo' alt="" />
                         <h4 className=' font-bold text-start text-xl'>{match.TeamA}</h4>
                         <h4 className='font-bold flex flex-row'>{jsonData?.wicketA}  <p className='text-gray-400 ms-1'>({jsonData?.oversA})</p> </h4>
                     </div>
-                    <div className='w-[10%] h-[100%] flex justify-center self-center'>
+                    <div className='w-[inherit] h-[100%] flex justify-center self-center'>
                         <h3 className='text-red-500 font-bold'>VS</h3>
                     </div>
-                    <div className='flex flex-col p-4 justify-end items-end'>
+                    <div className='flex w-[inherit] flex-col p-4 items-end'>
                         <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={match.ImgeURL + match.TeamBImage} className='teamLogo' alt="" />
                         <h4 className=' font-bold text-right text-xl'>{match.TeamB}</h4>
                         <h4 className='font-bold flex'>{jsonData?.wicketB}</h4>
