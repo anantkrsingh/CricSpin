@@ -7,6 +7,11 @@ import { FinishedMatches } from '../Comps/FinishedMatches';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
+import { AiOutlineDoubleRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { Series } from './Series';
+
+
 export default function Home() {
   const [upcomingMatches, setUpcomingMatches] = useState([]);
   const [liveMatches, setLiveMatches] = useState([]);
@@ -43,7 +48,7 @@ export default function Home() {
         </div>
       </div>
       <div className='w-full h-[1px] bg-gray-300 mt-4 mb-4'></div>
-      <h4 className='text-2xl text-white m-2'>Live Matches</h4>
+      <h4 className=' text-white m-2'>Live Matches</h4>
       {
         loading ? (
           <p className='p-4 text-white'>Loading...</p> // Show a loading message or spinner while fetching data
@@ -55,16 +60,24 @@ export default function Home() {
           </Carousel>
         )
       }
-      <h4 className='text-2xl text-white m-2'>Upcoming Matches</h4>
+      <Link to="/upcoming" className='w-full justify-between flex'>
+        
+      <h6 className=' items-center justify-center text-white m-2'>Upcoming Matches</h6>
+      <div className='flex cursor-pointer items-center text-white '>
+        See All <AiOutlineDoubleRight  className='ml-2' color='white'/>
+      </div>
+      </Link>
       {
         loading ? (
           <p className='text-white p-4'>Loading...</p> // Show a loading message or spinner while fetching data
         ) : (
-          upcomingMatches.map((item) => (
+          upcomingMatches.slice(0,3).map((item) => (
             <UpcominMatch item={item} key={item.id} />
           ))
         )
       }
+      <h6 className='items-center text-white mt-4 mx-4 '>Series</h6>
+      <Series/>
     </div>
   );
 }

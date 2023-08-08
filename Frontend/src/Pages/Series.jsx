@@ -24,10 +24,10 @@ export const Series = () => {
   };
 
   return (
-    <div className='w-full top-8 pb-10 font-[Roboto] p-2 relative'>
-      <div className='w-full flex self-center justify-center items-center'>
+    <div className='w-full pb-10 font-[Roboto] p-2 relative'>
+      {/* <div className='w-full flex self-center justify-center items-center'>
         <img src={Logo} className='w-[60px]' alt="" />
-      </div>
+      </div> */}
       <div className='mb-10'>
         {loading ? (
           <p>Loading...</p> // Show a loading message or spinner while fetching data

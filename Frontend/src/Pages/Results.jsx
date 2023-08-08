@@ -50,7 +50,7 @@ export const Results = () => {
 
 
   const resultNavs = [
-    "Info", "Live", "Scorecard"
+    "Info", "Live", "Scorecard", "Matchodds"
   ];
 
   const ResultDiv = () => {
@@ -81,7 +81,7 @@ export const Results = () => {
               <span>{myMatch?.TeamB}</span>
             </div>
           </div>
-          
+
           {loading ? <div className='text-black'>Loading</div> :
             <div className='flex items-center rounded-xl text-black bg-white shadow-lg p-2  mx-1 justify-between'>
               <div className='flex flex-col'>
@@ -90,7 +90,7 @@ export const Results = () => {
               </div>
               <p >{jsonData?.wicketB}</p>
             </div>}
-            
+
           <div className='w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row '>
             {resultNavs.map((item) => {
               const selected = currentItem === item;
@@ -104,7 +104,7 @@ export const Results = () => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <ResultDiv  />
+            <ResultDiv />
           )}
         </div>
       </div>

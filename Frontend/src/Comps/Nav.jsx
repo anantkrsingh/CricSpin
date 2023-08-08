@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Nav.css'
 
-import { faBaseballBatBall, faCalendar, faCalendarTimes, faGear, faHome, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBaseballBatBall, faSquarePollVertical,faCalendar, faCalendarTimes, faGear, faHome, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import { MyContext } from '../AppContext';
 
 export const Nav = () => {
@@ -21,9 +21,9 @@ export const Nav = () => {
             icon: faHome
         },
         {
-            title: "Series",
+            title: "Results",
             url: "#",
-            icon: faBaseballBatBall
+            icon: faSquarePollVertical
         },
         {
             title: "Settings",

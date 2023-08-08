@@ -9,7 +9,7 @@ export const Dash = () => {
     const MyDiv = () =>{
         switch(nav){
             case "Home" : return( <Home/> )
-            case "Series" :return( <Series/>)
+            case "Results" :return( <Series/>)
             default: return( <About/> )
         }
     }

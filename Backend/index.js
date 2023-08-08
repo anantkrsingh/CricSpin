@@ -58,6 +58,22 @@ app.get("/Result", (req, res) => {
     });
 });
 
+app.get("/MatchResults", (req, res) => {
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/MatchResults", {
+      "from": 1,
+      "to":20
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
 app.get("/Series", (req, res) => {
   const matchId = req.query.MatchId;
   axios

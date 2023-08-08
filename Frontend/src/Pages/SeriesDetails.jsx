@@ -10,6 +10,7 @@ export const SeriesDetails = () => {
   const id = searchParams.get("seriesId");
   const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selected,setSelected] = useState("FIXTURE");
 
   useEffect(() => {
     fetchData();
@@ -27,15 +28,30 @@ export const SeriesDetails = () => {
     }
   };
 
+  const MyDiv  = ({match}) =>{
+    return(
+      selected === "FIXTURE"? <FinishedMatches match={match}></FinishedMatches> : <></>
+    )
+  }
+
   return (
     <>
-      <div className="max-w-[375px] md:max-w-[400px] bg h-screen left-[50%]  m-auto p-4 overflow-y-auto">
+      <div className="max-w-[375px] euclidMedium md:max-w-[400px] bg h-screen left-[50%]  m-auto p-4 overflow-y-auto">
         <BsArrowLeft className='text-white' onClick={() => navigateTo(-1)} size={28} />
+
+        <div className='w-full  mt-4 flex justify-between euclidMedium '>
+          <div onClick={()=>setSelected("FIXTURE")} className={selected === "FIXTURE" ? 'bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md':"bg-white rounded-md px-4 py-2 cursor-pointer"}>
+            FIXTURE
+          </div>
+          <div onClick={()=>setSelected("POINTS TABLE")} className={selected === "POINTS TABLE" ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md":"bg-white font-bold rounded-md px-4 py-2 cursor-pointer"}>
+            POINTS TABLE
+          </div>
+        </div>
         {loading ? (
-          <p>Loading...</p> // Show a loading message or spinner while fetching data
+          <p className='mt-4 euclid text-white'>Loading...</p> // Show a loading message or spinner while fetching data
         ) : (
           matches.map((item) => {
-            return <FinishedMatches match={item} />;
+            return <MyDiv match={item} />;
           })
         )}
       </div>
