@@ -40,15 +40,15 @@ export const Nav = () => {
                     return (
                         <li
                             className={
-                                 'm-5 p-2 transition-all duration-300 ease-linear bg-blue-800 rounded-2xl cursor-pointer flex items-center slide-in'
-                                    
+                                'm-5 p-2 transition-all duration-300 ease-linear bg-blue-800 rounded-2xl cursor-pointer flex items-center slide-in'
+
                             }
-                            onClick={() => setNav(item.title)}
+                            onClick={() => {setNav(item.title); setSelected(item.title)}}
                         >
                             <FontAwesomeIcon className='m-2 text-white' size='sm' icon={item.icon} />
                             <a
                                 className={
-                                         'block text-white mr-2 text-sm hover:text-white'
+                                    'block text-white mr-2 text-sm hover:text-white'
                                 }
                                 href=""
                             >
