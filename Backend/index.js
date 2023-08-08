@@ -111,7 +111,7 @@ app.post("/Players", (req, res) => {
     });
 });
 
-app.post("/MatchOdds", (req, res) => {
+app.get("/MatchOdds", (req, res) => {
   const matchId = req.query.MatchId;
   console.log(matchId);
   axios

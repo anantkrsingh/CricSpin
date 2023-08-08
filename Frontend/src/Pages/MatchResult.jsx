@@ -58,7 +58,7 @@ export const MatchResult = () => {
         switch (currentItem) {
             case "Scorecard": return (<ScoreCard matchID={matchID} />);
             case "Live": return (<Live matchID={matchID} />);
-            default: return (<MatchOdds match={myMatch} />);
+            default: return (<MatchOdds matchId={matchID} />);
         }
     };
 
@@ -69,7 +69,7 @@ export const MatchResult = () => {
                     <div className="">
                         <p className="text-sm rounded-xl p-4 bg-blue-500 text-slate-200 flex items-center">
                             <BsArrowLeft onClick={() => navigateTo(-1)} size={28} />
-                            
+
                         </p>
                     </div>
                     <div className='w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row '>
