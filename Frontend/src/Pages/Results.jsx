@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ScoreCard } from '../Comps/ScoreCard';
 import { Live } from '../Comps/Live';
 import { Info } from '../Comps/Info';
+import { MatchOdds } from '../Comps/MatchOdds';
 
 export const Results = () => {
   const navigateTo = useNavigate();
@@ -57,6 +58,7 @@ export const Results = () => {
     switch (currentItem) {
       case "Scorecard": return (<ScoreCard matchID={matchID} />);
       case "Live": return (<Live matchID={matchID} />);
+      case "Matchodds": return (<MatchOdds item={matchID}/>);
       default: return (<Info match={myMatch} />);
     }
   };

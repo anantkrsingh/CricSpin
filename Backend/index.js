@@ -120,7 +120,7 @@ app.get("/MatchOdds", (req, res) => {
     })
     .then((response) => {
       console.log(response.data);
-      res.status(200).json(response.data.Playerslist);
+      res.status(200).json(response.data);
     })
     .catch((error) => {
       console.error(error);
