@@ -45,7 +45,7 @@ app.get("/UpcomingMatches", (req, res) => {
 app.get("/Result", (req, res) => {
   const matchId = req.query.MatchId;
   axios
-    .post("http://cricpro.cricnet.co.in/api/values/MatchResults", {
+    .post("http://cricpro.cricnet.co.in/api/values/MatchResult", {
       "MatchId": matchId,
     })
     .then((response) => {
@@ -70,7 +70,8 @@ app.get("/MatchResults", (req, res) => {
   axios.post('http://cricpro.cricnet.co.in/api/values/MatchResults', requestBody)
     .then(response => {
       console.log(response.data);
-      res.status(200).json(response.data);    })
+      res.status(200).json(response.data);
+    })
     .catch(error => {
       console.error('Error:', error);
     });
@@ -98,6 +99,23 @@ app.post("/Players", (req, res) => {
   console.log(matchId);
   axios
     .post("http://cricpro.cricnet.co.in/api/values/GetAllPlayers", {
+      "MatchId": matchId,
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data.Playerslist);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
+app.post("/MatchOdds", (req, res) => {
+  const matchId = req.query.MatchId;
+  console.log(matchId);
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/MatchOdds", {
       "MatchId": matchId,
     })
     .then((response) => {
@@ -143,6 +161,9 @@ app.get("/SeriesMatches", (req, res) => {
       res.status(500).json({ error: "An error occurred" });
     });
 });
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const FinishedMatches = ({ match }) => {
+export const FinishedMatch = ({ match }) => {
     let jsonData = null;
     try {
         if (match.jsondata === "") {
@@ -51,8 +51,8 @@ export const FinishedMatches = ({ match }) => {
 
         <>
             <Link to={{
-                pathname: `/results`,
-                search: `matchId=${item.MatchId}&seriesId=${match.seriesid}`
+                pathname: `/matchresult`,
+                search: `matchId=${item.MatchId}`
             }} className='w-auto bg-white mt-6 p-2 ps-4 rounded-xl justify-between flex flex-col'>
                 <div className='text-black text-lg euclid'>
                     {item.Title}
@@ -60,7 +60,7 @@ export const FinishedMatches = ({ match }) => {
                 <div className='flex w-full justify-between'>
                     <div className='flex flex-col'>
                         <div className='flex flex-row items-center'>
-                            <img src={item.ImageUrl+item.TeamAImage} className='rounded-full border-4  w-[48px] h-[48px]' alt="" />
+                            <img src={item.ImageUrl + item.TeamAImage} className='rounded-full border-4  w-[48px] h-[48px]' alt="" />
                             <h4 className=' euclid font-bold ms-4 text-xl'>{item.TeamA}</h4>
                         </div>
                         <div className='flex flex-row items-center'>

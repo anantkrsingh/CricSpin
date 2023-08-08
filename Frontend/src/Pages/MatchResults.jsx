@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FinishedMatches } from '../Comps/FinishedMatches';
+import { FinishedMatch } from '../Comps/FinishedMatch';
 
 export const MatchResults = () => {
     const [matches, setMatches] = useState([]);
@@ -25,7 +26,7 @@ export const MatchResults = () => {
     return (
         <div>{
             loading ? <div>Loading...</div> : matches.map((item) => (
-                <FinishedMatches item={item} key={item.id} />
+                <FinishedMatch match={item} key={item.id} />
               ))
         }</div>
     )
