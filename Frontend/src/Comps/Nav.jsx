@@ -33,22 +33,22 @@ export const Nav = () => {
     ];
 
     return (
-        <nav className='flex z-10 items-center justify-center w-[375px] first-line:  self-center  pl-4 pr-4 fixed bottom-0  bg-[#513BB2] bg-opacity-60 md:left-0  md:w-[100vw]  '>
+        <nav className='flex z-10 items-center justify-center w-[375px] first-line:  self-center  pl-4 pr-4 fixed bottom-0  bg-[#513BB2] bg-opacity-60 md:left-0  md:w-[100vw]'>
             <ul className='flex transition-all  duration-300 ease-linear'>
                 {navs.map((item) => {
                     const isSelected = item.title === nav;
                     return (
                         <li
                             className={
-                                'm-5 p-2 transition-all duration-300 ease-linear bg-blue-800 rounded-2xl cursor-pointer flex items-center slide-in'
-
+                                 'm-5 p-2 transition-all duration-300 ease-linear bg-blue-800 rounded-2xl cursor-pointer flex items-center slide-in'
+                                    
                             }
-                            onClick={() => {setNav(item.title); setSelected(item.title)}}
+                            onClick={() => setNav(item.title)}
                         >
                             <FontAwesomeIcon className='m-2 text-white' size='sm' icon={item.icon} />
                             <a
                                 className={
-                                    'block text-white mr-2 text-sm hover:text-white'
+                                         'block text-white mr-2 text-sm hover:text-white'
                                 }
                                 href=""
                             >

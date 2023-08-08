@@ -46,9 +46,9 @@ export default function Home() {
       <h4 className='text-2xl text-white m-2'>Live Matches</h4>
       {
         loading ? (
-          <p>Loading...</p> // Show a loading message or spinner while fetching data
+          <p className='p-4 text-white'>Loading...</p> // Show a loading message or spinner while fetching data
         ) : (
-          <Carousel autoPlay interval={"5000"} transitionTime={"5000"} showStatus={false} showIndicators={false}>
+          <Carousel autoPlay interval={"5000"} transitionTime={"500"} showStatus={false} showIndicators={false}>
             {liveMatches.map((item) => (
               <LiveMatches match={item} key={item.id} />
             ))}
@@ -58,7 +58,7 @@ export default function Home() {
       <h4 className='text-2xl text-white m-2'>Upcoming Matches</h4>
       {
         loading ? (
-          <p>Loading...</p> // Show a loading message or spinner while fetching data
+          <p className='text-white p-4'>Loading...</p> // Show a loading message or spinner while fetching data
         ) : (
           upcomingMatches.map((item) => (
             <UpcominMatch item={item} key={item.id} />
