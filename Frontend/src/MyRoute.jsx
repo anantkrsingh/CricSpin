@@ -10,7 +10,7 @@ export default function MyRoute() {
   return (
   
       <Routes>
-        <Route path='/home' element={<App/>}/>
+        <Route path='/' element={<App/>}/>
         <Route path="/results" element={<Results />} />
         <Route path="/smatch" element={<SeriesDetails />} />
       </Routes>

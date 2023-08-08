@@ -46,14 +46,15 @@ export const Nav = () => {
                             onClick={() => setNav(item.title)}
                         >
                             <FontAwesomeIcon className='m-2 text-white' size='sm' icon={item.icon} />
-                            <a
+                            <p 
                                 className={
                                          'block text-white mr-2 text-sm hover:text-white'
                                 }
-                                href=""
+                                onClick={() => setNav(item.title)}
+
                             >
                                 {item.title}
-                            </a>
+                            </p>
                         </li>
                     );
                 })}
