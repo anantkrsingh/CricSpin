@@ -3,13 +3,14 @@ import { MyContext } from '../AppContext'
 import Home from './Home'
 import { Series } from './Series'
 import { About } from './About'
+import { MatchResults } from './MatchResults'
 
 export const Dash = () => {
     const {nav} = useContext(MyContext)
     const MyDiv = () =>{
         switch(nav){
             case "Home" : return( <Home/> )
-            case "Results" :return( <Series/>)
+            case "Results" :return( <MatchResults/>)
             default: return( <About/> )
         }
     }
