@@ -41,9 +41,9 @@ export default function Home() {
   return (
     <div className='w-full top-8 font-[Roboto]  relative'>
       <div className='w-full flex self-center text-white justify-center items-center'>
-        <div className='p-4' >Cricspin</div>
+        <div className='p-4 euclidMedium' >Cricspin</div>
         <img src={Logo} className='w-[60px]  ' alt="" />
-        <div className='p-4 font-bold euclidMedium'>
+        <div className='p-4 euclidMedium'>
           LiveLine
         </div>
       </div>
