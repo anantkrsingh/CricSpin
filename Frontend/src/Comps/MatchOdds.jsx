@@ -49,10 +49,10 @@ export const MatchOdds = ({ matchId }) => {
         !loading &&
         <div className='flex flex-col'>
             <div className='flex w-full justify-between p-2'>
-                <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-white p-2 rounded-lg" : "bg-gray-500 text-gray-100 p-2 rounded-lg cursor-pointer"}>
+                <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>
                     <h2 className="text-lg font-bold">1ST INNINGS</h2>
                 </div>
-                <div onClick={toggleTeamBPlayers} className={showTeamBPlayers ? "bg-white p-2 rounded-lg" : "bg-gray-500 text-gray-100 p-2 rounded-lg cursor-pointer"}>
+                <div onClick={toggleTeamBPlayers} className={showTeamBPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>
                     <h2 className="text-lg font-bold ">2ND INNINGS</h2>
                 </div>
             </div>

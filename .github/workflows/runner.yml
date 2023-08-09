@@ -24,4 +24,3 @@ jobs:
             npm install
             sudo kill -9 $(sudo lsof -t -i:8001)
             pm2 start npm --name "CricSpin" -- start
-            sudo service nginx restart
