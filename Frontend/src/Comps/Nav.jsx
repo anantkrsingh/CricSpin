@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Nav.css'
 
-import { faBaseballBatBall, faSquarePollVertical,faCalendar, faCalendarTimes, faGear, faHome, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { faBaseballBatBall, faSquarePollVertical, faCalendar, faCalendarTimes, faGear, faHome, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import { MyContext } from '../AppContext';
 
 export const Nav = () => {
@@ -40,15 +40,15 @@ export const Nav = () => {
                     return (
                         <li
                             className={
-                                 'm-5 p-2 transition-all duration-300 ease-linear bg-blue-800 rounded-2xl cursor-pointer flex items-center slide-in'
-                                    
+                                'm-2 p-2 transition-all duration-300 ease-linear bg-blue-800 rounded-2xl cursor-pointer flex items-center slide-in'
+
                             }
                             onClick={() => setNav(item.title)}
                         >
                             <FontAwesomeIcon className='m-2 text-white' size='sm' icon={item.icon} />
-                            <p 
+                            <p
                                 className={
-                                         'block text-white mr-2 text-sm hover:text-white'
+                                    'block text-white mr-2 text-sm hover:text-white'
                                 }
                                 onClick={() => setNav(item.title)}
 
