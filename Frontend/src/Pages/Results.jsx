@@ -9,7 +9,7 @@ import { MatchOdds } from '../Comps/MatchOdds';
 
 export const Results = () => {
   const navigateTo = useNavigate();
-  const [currentItem, setCurrentItem] = useState("Scorecard");
+  const [currentItem, setCurrentItem] = useState("Info");
   const [searchParams, setSearchParams] = useSearchParams();
   const matchID = searchParams.get("matchId");
   const seriesId = searchParams.get("seriesId");
