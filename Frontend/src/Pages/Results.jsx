@@ -21,9 +21,9 @@ export const Results = () => {
   useEffect(() => {
     fetchData();
 
-    const interval = setInterval(() => {
-      fetchData();
-    }, 6000); // Refresh every 6 seconds
+    // const interval = setInterval(() => {
+    //   fetchData();
+    // }, 6000); 
 
     return () => clearInterval(interval); // Cleanup the interval on unmount
   }, []);

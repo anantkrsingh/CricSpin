@@ -6,7 +6,7 @@ import Logo from '../assets/logo.png';
 import { FinishedMatches } from '../Comps/FinishedMatches';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-
+import '../App.css'
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Series } from './Series';
@@ -53,7 +53,7 @@ export default function Home() {
         loading ? (
           <p className='p-4 text-white'>Loading...</p> // Show a loading message or spinner while fetching data
         ) : (
-          <Carousel autoPlay interval={"5000"} transitionTime={"500"} showStatus={false} showIndicators={false}>
+          <Carousel autoPlay interval={"5000"} transitionTime={"500"} showStatus={false} showIndicators={true}>
             {liveMatches.map((item) => (
               <LiveMatches match={item} key={item.id} />
             ))}

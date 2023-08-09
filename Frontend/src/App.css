@@ -34,3 +34,12 @@
     background-image: url('/src/assets/bg.png');
 }
 
+.control-dots{
+    
+    margin: -27px 0 !important;
+}
+
+.carousel-slider{
+    overflow: visible !important;
+}
+
