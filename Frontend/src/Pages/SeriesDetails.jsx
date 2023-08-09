@@ -3,6 +3,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { LiveMatches } from '../Comps/LiveMatches';
 import { FinishedMatches } from '../Comps/FinishedMatches';
+import { PointsTable } from '../Comps/PointsTable';
 
 export const SeriesDetails = () => {
   const navigateTo = useNavigate();
@@ -31,7 +32,7 @@ export const SeriesDetails = () => {
 
   const MyDiv  = ({match}) =>{
     return(
-      selected === "FIXTURE"? <FinishedMatches match={match}></FinishedMatches> : <></>
+      selected === "FIXTURE"? <FinishedMatches match={match}></FinishedMatches> : <PointsTable seriesId={id}/>
     )
   }
 

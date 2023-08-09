@@ -162,6 +162,22 @@ app.get("/SeriesMatches", (req, res) => {
     });
 });
 
+app.get("/Pointstable", (req, res) => {
+  const seriesId = req.query.seriesId;
+  axios
+    .post("http://cricpro.cricnet.co.in/api/values/Pointstable", {
+      "seriesid": seriesId,
+    })
+    .then((response) => {
+      console.log(response.data);
+      res.status(200).json(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).json({ error: "An error occurred" });
+    });
+});
+
 
 
 

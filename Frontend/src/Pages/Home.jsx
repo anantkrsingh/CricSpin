@@ -51,7 +51,7 @@ export default function Home() {
       <h4 className=' text-white m-2'>Live Matches</h4>
       {
         loading ? (
-          <p className='p-4 text-white'>Loading...</p> // Show a loading message or spinner while fetching data
+          <p className='p-4 text-white'>Loading...</p> 
         ) : (
           <Carousel autoPlay interval={"5000"} transitionTime={"500"} showStatus={false} showIndicators={true}>
             {liveMatches.map((item) => (
