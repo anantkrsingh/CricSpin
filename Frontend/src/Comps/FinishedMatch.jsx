@@ -52,7 +52,7 @@ export const FinishedMatch = ({ match }) => {
         <>
             <Link to={{
                 pathname: `/matchresult`,
-                search: `matchId=${item.MatchId}`
+                search: `matchId=${item.MatchId}&name=${item.Title}`
             }} className='w-auto bg-white mt-6 p-2 ps-4 rounded-xl justify-between flex flex-col'>
                 <div className='text-black text-lg euclid'>
                     {item.Title}

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify'
+
 
 
 export const Live = ({ matchID }) => {
@@ -19,10 +21,10 @@ export const Live = ({ matchID }) => {
       });
       const data = await response.json();
       setMatch(data[0]);
-      setLoading(false); // Set loading to false once data is fetched
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
-      setLoading(false); // Set loading to false if there's an error
+      setLoading(false);
     }
   };
 
@@ -100,7 +102,8 @@ export const Live = ({ matchID }) => {
 
 
 
-
+  const startIndex = jsonData.title.indexOf('PLZ RATE US 5 STARS');
+  const content = jsonData.title.substring(startIndex);
 
   return (
     <div className='flex w-full '>
@@ -185,10 +188,9 @@ export const Live = ({ matchID }) => {
         </div>
         <div className='w-full euclid mt-4 bg-white rounded-md'>
           <p className='border-b-2 p-2 border-gray-700'>Summary</p>
-          <p className='p-2'>
-
-            {jsonData.title}
-          </p>
+          <pre  className='p-2 whitespace-pre-wrap	text-center'>
+            {content}
+          </pre>
         </div>
 
       </div>

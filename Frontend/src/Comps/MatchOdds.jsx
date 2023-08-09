@@ -13,7 +13,6 @@ export const MatchOdds = ({ matchId }) => {
             const response = await fetch(`http://api.cricspin.live/MatchOdds?MatchId=${matchId}`);
             const data = await response.json();
             setMatch(data.Matchst);
-
             setLoading(false);
             console.log(data);
         } catch (error) {
@@ -29,12 +28,12 @@ export const MatchOdds = ({ matchId }) => {
     const [showTeamBPlayers, setShowTeamBPlayers] = useState(false);
 
     const toggleTeamAPlayers = () => {
-        setShowTeamAPlayers(!showTeamAPlayers);
+        setShowTeamAPlayers(true);
         setShowTeamBPlayers(false);
     };
 
     const toggleTeamBPlayers = () => {
-        setShowTeamBPlayers(!showTeamBPlayers);
+        setShowTeamBPlayers(true);
         setShowTeamAPlayers(false);
     };
 

@@ -37,7 +37,7 @@ export const Series = () => {
               <Link
                 to={{
                   pathname: "/smatch",
-                  search: `seriesId=${item.seriesid}`
+                  search: `seriesId=${item.seriesid}&name=${item.seriesname}`
                 }}
               >
                 {item.seriesname}  <br />

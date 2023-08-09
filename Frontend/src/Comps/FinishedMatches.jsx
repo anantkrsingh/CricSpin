@@ -74,7 +74,7 @@ export const FinishedMatches = ({ match }) => {
 
                         </div>
                         <div className='ms-4 me-4 font-[Rajdhani] font-bold text-[#a50000]'>
-                            Finished
+                            {item.isfinished === 1? <div>Finished</div> : <div></div>}
                         </div>
                     </div>
                 </div>

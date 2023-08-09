@@ -13,6 +13,7 @@ export const MatchResult = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const matchID = searchParams.get("matchId");
     const seriesId = searchParams.get("seriesId");
+    const name = searchParams.get("name");
     const [loading, setLoading] = useState(true);
     const [myMatch, setMyMatch] = useState(null);
     const [jsonData, setJsonData] = useState(null)
@@ -68,15 +69,15 @@ export const MatchResult = () => {
                 <div className="flex z-0 h-screen p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
                     <div className="">
                         <p className="text-sm rounded-xl p-4 bg-blue-500 text-slate-200 flex items-center">
-                            <BsArrowLeft onClick={() => navigateTo(-1)} size={28} />
-
+                            <BsArrowLeft className='m-2' onClick={() => navigateTo(-1)} size={28} />
+                            {name}
                         </p>
                     </div>
                     <div className='w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row '>
                         {resultNavs.map((item) => {
                             const selected = currentItem === item;
                             return (
-                                <div onClick={() => setCurrentItem(item)} className={selected ? 'self-center cursor-pointer text-orange-800 font-bold' : 'text-gray-800 cursor-pointer'} key={item}>
+                                <div onClick={() =>{ setCurrentItem(item)}} className={selected ? 'self-center cursor-pointer text-orange-800 font-bold' : 'text-gray-800 cursor-pointer'} key={item}>
                                     {item}
                                 </div>
                             );

@@ -15,12 +15,12 @@ export const ScoreCard = ({ matchID }) => {
   const teamBPlayers = players.filter((player) => player.TeamSide === "Team B");
 
   const toggleTeamAPlayers = () => {
-    setShowTeamAPlayers(!showTeamAPlayers);
+    setShowTeamAPlayers(true);
     setShowTeamBPlayers(false);
   };
 
   const toggleTeamBPlayers = () => {
-    setShowTeamBPlayers(!showTeamBPlayers);
+    setShowTeamBPlayers(true);
     setShowTeamAPlayers(false);
   };
   if (loading) {

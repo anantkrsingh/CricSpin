@@ -13,6 +13,7 @@ export const LiveMatches = ({ match }) => {
     } catch (error) {
         console.error('Error parsing JSON:', error.message);
     }
+    console.log(match);
     return (
         // <>
         //     <Link to={{
@@ -57,7 +58,8 @@ export const LiveMatches = ({ match }) => {
             }} className='w-full rounded-2xl overflow-hidden  bg-white flex flex-col'>
                 <div className='flex justify-between'>
                     <p className='p-2 text-sm euclidMedium'>{match.Title}</p>
-                    <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>
+                    {match.isfinished === 1 ? <div></div> : <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>}
+
                 </div>
 
                 <div className='w-full flex flex-row euclidMedium'>

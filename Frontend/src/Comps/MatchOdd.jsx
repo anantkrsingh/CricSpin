@@ -9,7 +9,7 @@ export const MatchOdd = ({ item }) => {
     return (
         <div className='text-sm items-center bg-white flex rounded-sm m-2 p-2'>
             <p>{item.Score}</p>
-            <div className='flex ml-4 items-center flex-col'>
+            <div  className='flex ml-4 items-center flex-col'>
                 <p>{item.overs}</p>
                 <div className='bg-gray-800 w-4 h-[1px]'></div>
                 <p>{formattedTime}</p>

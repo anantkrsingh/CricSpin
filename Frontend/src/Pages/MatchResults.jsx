@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { FinishedMatches } from '../Comps/FinishedMatches';
 import { FinishedMatch } from '../Comps/FinishedMatch';
+import { useSearchParams } from 'react-router-dom';
 
 export const MatchResults = () => {
     const [matches, setMatches] = useState([]);
     const [loading, setLoading] = useState(true);
-
-
     useEffect(() => {
         fetchData();
     }, []);
