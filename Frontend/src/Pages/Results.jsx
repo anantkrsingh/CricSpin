@@ -25,7 +25,7 @@ export const Results = () => {
     //   fetchData();
     // }, 6000); 
 
-    return () => clearInterval(interval); // Cleanup the interval on unmount
+    // return () => clearInterval(interval); 
   }, []);
   const fetchData = async () => {
     try {
@@ -65,7 +65,7 @@ export const Results = () => {
     switch (currentItem) {
       case "Scorecard": return (<ScoreCard matchID={matchID} />);
       case "Live": return (<Live matchID={matchID} />);
-      case "Matchodds": return (<MatchOdds item={matchID} />);
+      case "Matchodds": return (<MatchOdds matchId={matchID} />);
       default: return (<Info match={myMatch} />);
     }
   };
