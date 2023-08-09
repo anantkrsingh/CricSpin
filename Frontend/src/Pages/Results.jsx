@@ -21,11 +21,12 @@ export const Results = () => {
   useEffect(() => {
     fetchData();
 
-    // const interval = setInterval(() => {
-    //   fetchData();
-    // }, 6000); 
+    const interval = setInterval(() => {
+      setLoading(false)
+      fetchData();
+    }, 2000);
 
-    // return () => clearInterval(interval); 
+    return () => clearInterval(interval);
   }, []);
   const fetchData = async () => {
     try {
@@ -40,20 +41,16 @@ export const Results = () => {
           filteredMatches[0].jsondata = "{}";
         }
         setJsonData(JSON.parse(filteredMatches[0].jsondata).jsondata);
-        const wicketA = jsonData?.wicketA;
-        setLoading(false);
-        console.log(wicketA);
+        console.log(jsonData?.wicketA);
       } catch (error) {
-        setLoading(false);
         console.error('Error parsing JSON:', error.message);
       }
-
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error('Error fetching data:', error);
+    } finally {
       setLoading(false);
     }
   };
-
 
 
 
@@ -99,22 +96,30 @@ export const Results = () => {
               </div>
               <p >{jsonData?.wicketB}</p>
             </div>}
-
-          <div className='w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row '>
-            {resultNavs.map((item) => {
-              const selected = currentItem === item;
-              return (
-                <div onClick={() => setCurrentItem(item)} className={selected ? 'self-center cursor-pointer text-orange-800 font-bold' : 'text-gray-800 cursor-pointer'} key={item}>
-                  {item}
-                </div>
-              );
-            })}
+          <div className="w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row">
+            {resultNavs.map((item) => (
+              <div
+                onClick={() => setCurrentItem(item)}
+                className={currentItem === item ? 'self-center cursor-pointer text-orange-800 font-bold' : 'text-gray-800 cursor-pointer'}
+                key={item}
+              >
+                {item}
+              </div>
+            ))}
           </div>
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <ResultDiv />
-          )}
+            currentItem === "Scorecard" ? (
+              <ScoreCard matchID={matchID} />
+            ) : currentItem === "Live" ? (
+              <Live matchID={matchID} />
+            ) : currentItem === "Matchodds" ? (
+              <MatchOdds matchId={matchID} />
+            ) : (
+              <Info match={myMatch} />
+            ))
+          }
         </div>
       </div>
     </>

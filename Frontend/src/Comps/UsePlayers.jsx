@@ -23,6 +23,13 @@ const usePlayers = (matchID) => {
     };
 
     fetchPlayers();
+
+    const interval = setInterval(() => {
+      setLoading(false)
+      fetchData();
+    }, 2000);
+
+    return () => clearInterval(interval);
   }, [matchID]);
 
   return { players, loading };

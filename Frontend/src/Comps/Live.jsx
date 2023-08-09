@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DOMPurify from "dompurify";
 
-export const Live = ({ matchID }) => {
+export const Live = React.memo(({ matchID }) => {
   const [match, setMatch] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -10,9 +10,9 @@ export const Live = ({ matchID }) => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 6000); // Refresh every 6 seconds
+    }, 2000);
 
-    return () => clearInterval(interval); // Cleanup the interval on unmount
+    return () => clearInterval(interval);
   }, []);
 
   const fetchData = async () => {
@@ -229,4 +229,5 @@ export const Live = ({ matchID }) => {
       </div>
     </div>
   );
-};
+
+});
