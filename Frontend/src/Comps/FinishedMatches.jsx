@@ -58,10 +58,10 @@ export const FinishedMatches = ({ match }) => {
                 <div className='text-black text-lg euclid'>
                     {item.Title}
                 </div>
-                <div className='flex w-full justify-between'>
+                <div className='flex text-black w-full justify-between'>
                     <div className='flex flex-col'>
                         <div className='flex flex-row items-center'>
-                            <img src={item.ImgeURL+item.TeamAImage} className='rounded-full border-4  w-[48px] h-[48px]' alt="" />
+                            <img src={item.ImgeURL + item.TeamAImage} className='rounded-full border-4  w-[48px] h-[48px]' alt="" />
                             <h4 className=' euclid font-bold ms-4 text-xl'>{item.TeamA}</h4>
                         </div>
                         <div className='flex flex-row items-center'>
@@ -74,7 +74,7 @@ export const FinishedMatches = ({ match }) => {
 
                         </div>
                         <div className='ms-4 me-4 font-[Rajdhani] font-bold text-[#a50000]'>
-                            {item.isfinished === 1? <div>Finished</div> : <div></div>}
+                            {item.isfinished === 1 ? <div>Finished</div> : <div></div>}
                         </div>
                     </div>
                 </div>

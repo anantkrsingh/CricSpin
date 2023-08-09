@@ -22,6 +22,6 @@ jobs:
             cd ..
             cd Backend
             npm install
-            pm2 stop "CricSpin"
+            sudo kill -9 $(sudo lsof -t -i:8001)
             pm2 start npm --name "CricSpin" -- start
             sudo service nginx restart
