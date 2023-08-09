@@ -26,7 +26,7 @@ const usePlayers = (matchID) => {
 
     const interval = setInterval(() => {
       setLoading(false)
-      fetchData();
+      fetchPlayers();
     }, 2000);
 
     return () => clearInterval(interval);

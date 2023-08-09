@@ -29,7 +29,7 @@ export const ScoreCard = ({ matchID }) => {
   return (
     <div className="w-full flex flex-col justify-between">
       <div className='w-full  mt-4 mb-2 flex justify-between euclidMedium '>
-        <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-gray-500 text-gray-100 p-2 rounded-lg cursor-pointer"}>
+        <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>
           <h2 className="font-bold">{teamA}</h2>
         </div>
         <div onClick={toggleTeamBPlayers} className={showTeamBPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>

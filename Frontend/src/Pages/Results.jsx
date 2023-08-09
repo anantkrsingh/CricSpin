@@ -22,7 +22,6 @@ export const Results = () => {
     fetchData();
 
     const interval = setInterval(() => {
-      setLoading(false)
       fetchData();
     }, 2000);
 
