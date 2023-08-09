@@ -17,8 +17,15 @@ export const Results = () => {
   const [myMatch, setMyMatch] = useState(null);
   const [jsonData, setJsonData] = useState(null)
 
+
   useEffect(() => {
     fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 6000); // Refresh every 6 seconds
+
+    return () => clearInterval(interval); // Cleanup the interval on unmount
   }, []);
   const fetchData = async () => {
     try {
@@ -58,7 +65,7 @@ export const Results = () => {
     switch (currentItem) {
       case "Scorecard": return (<ScoreCard matchID={matchID} />);
       case "Live": return (<Live matchID={matchID} />);
-      case "Matchodds": return (<MatchOdds item={matchID}/>);
+      case "Matchodds": return (<MatchOdds item={matchID} />);
       default: return (<Info match={myMatch} />);
     }
   };

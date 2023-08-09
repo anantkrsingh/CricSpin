@@ -7,8 +7,15 @@ export const Live = ({ matchID }) => {
   const [match, setMatch] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  
   useEffect(() => {
     fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 6000); // Refresh every 6 seconds
+
+    return () => clearInterval(interval); // Cleanup the interval on unmount
   }, []);
 
   const fetchData = async () => {
@@ -171,7 +178,7 @@ export const Live = ({ matchID }) => {
               <td className='text-right p-2'>{nsr}</td>
             </tr>
           </tbody>
-          <div className='flex p-2'> <h6>Bowler:</h6> <p className='flex font-bold w-full  text-center'>  {data.bowler}</p> </div>
+          <div className='flex p-2'> <h6>Bowler:</h6> <p className='flex i font-bold w-full  text-center'>  {data.bowler}</p> </div>
         </table>
 
         <div className='flex euclid flex-row mt-4 bg-white rounded-md p-1 items-center' >

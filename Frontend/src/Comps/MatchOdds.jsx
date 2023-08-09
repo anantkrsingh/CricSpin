@@ -5,9 +5,16 @@ export const MatchOdds = ({ matchId }) => {
 
     const [match, setMatch] = useState([]);
     const [loading, setLoading] = useState(false);
-    useEffect(() => {
-        fetchData();
-    }, []);
+    
+  useEffect(() => {
+    fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 6000); // Refresh every 6 seconds
+
+    return () => clearInterval(interval); // Cleanup the interval on unmount
+  }, []);
     const fetchData = async () => {
         try {
             const response = await fetch(`http://api.cricspin.live/MatchOdds?MatchId=${matchId}`);
