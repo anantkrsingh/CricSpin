@@ -222,7 +222,7 @@ export const Live = React.memo(({ matchID }) => {
           <p>Current Run Rate {CRR}</p>
           <p>R.R.R: {RRR}</p>
         </div>
-        <div className="w-full euclid mt-4 bg-white rounded-md">
+        <div className="w-full mb-12  euclid mt-4 bg-white rounded-md">
           <p className="border-b-2 p-2 border-gray-700">Summary</p>
           <pre className="p-2 whitespace-pre-wrap	text-center">{content}</pre>
         </div>

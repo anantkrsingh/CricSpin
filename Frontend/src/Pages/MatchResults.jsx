@@ -11,6 +11,7 @@ export const MatchResults = () => {
     }, []);
 
     const fetchData = async () => {
+        
         try {
             const upcomingResponse = await fetch("http://api.cricspin.live/MatchResults");
             const upcomingData = await upcomingResponse.json();

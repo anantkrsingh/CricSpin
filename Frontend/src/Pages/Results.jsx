@@ -6,6 +6,22 @@ import { ScoreCard } from '../Comps/ScoreCard';
 import { Live } from '../Comps/Live';
 import { Info } from '../Comps/Info';
 import { MatchOdds } from '../Comps/MatchOdds';
+import Lottie from 'react-lottie-player';
+import out from '../assets/json/out.json';
+import four from '../assets/json/four.json';
+import zero from '../assets/json/zero.json';
+import one from '../assets/json/one.json';
+import two from '../assets/json/two.json';
+import three from '../assets/json/three.json';
+import deadBall from '../assets/json/dead_ball.json';
+import over from '../assets/json/over.json';
+import wicket from '../assets/json/wicket.json';
+import wide from '../assets/json/wide.json';
+import thid_umpire from '../assets/json/third_umpire.json';
+import six from '../assets/json/six.json';
+import loadingLottie from '../assets/json/loading.json';
+
+import CircleOverlay from '../Comps/CircleOverlay';
 
 export const Results = () => {
   const navigateTo = useNavigate();
@@ -16,7 +32,69 @@ export const Results = () => {
   const [loading, setLoading] = useState(true);
   const [myMatch, setMyMatch] = useState(null);
   const [jsonData, setJsonData] = useState(null)
+  const [animation, setAnimation] = useState("loadingLottie");
 
+  
+
+  const animationMap = {
+    out,
+    four,
+    zero,
+    one,
+    two,
+    three,
+    deadBall,
+    over,
+    wicket,
+    wide,
+    thid_umpire,
+    six,
+    loadingLottie,
+  };
+
+
+  const handleAnimation = (strf) => {
+    let animationName = 'loading';
+    switch (strf) {
+      case '4-4-4':
+        animationName = 'four';
+        break;
+      case '0':
+        animationName = 'zero';
+        break;
+      case '1':
+        animationName = 'one';
+        break;
+      case '2':
+        animationName = 'two';
+        break;
+      case '3':
+        animationName = 'three';
+        break;
+      case 'Ball':
+        animationName = 'dead_ball';
+        break;
+      case 'Over':
+        animationName = 'over';
+        break;
+      case 'Wicket':
+        animationName = 'wicket';
+        break;
+      case 'Wide Ball':
+        animationName = 'wide';
+        break;
+      case 'Third Umpire':
+        animationName = 'third_umpire';
+        break;
+      case '6-6-6':
+        animationName = 'six';
+        break;
+      default:
+        animationName = 'loadingLottie';
+        break;
+    }
+    setAnimation(animationName);
+  };
 
   useEffect(() => {
     fetchData();
@@ -25,7 +103,11 @@ export const Results = () => {
       fetchData();
     }, 2000);
 
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
   }, []);
   const fetchData = async () => {
     try {
@@ -41,9 +123,12 @@ export const Results = () => {
         }
         setJsonData(JSON.parse(filteredMatches[0].jsondata).jsondata);
         console.log(jsonData?.wicketA);
+        
       } catch (error) {
         console.error('Error parsing JSON:', error.message);
       }
+      handleAnimation(jsonData.score)
+      console.log(jsonData.score);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -93,8 +178,23 @@ export const Results = () => {
                 <p>{jsonData?.wicketA}</p>
                 <p className='text-gray-700'> Overs : {jsonData?.oversA}</p>
               </div>
-              <p >{jsonData?.wicketB}</p>
-            </div>}
+
+              <div className='relative '>
+                {
+                  animationMap[animation] && animation != "loadingLottie" && <Lottie 
+                    loop
+                    play
+                    animationData={animationMap[animation]}
+                    style={{ width: 160, height: 103 ,position:"absolute",zIndex:"1"}}
+                  />
+                }
+
+                <CircleOverlay  style={{ position: 'absolute', zIndex: 2 }} />
+              </div>
+
+              <p >  {jsonData?.wicketB}</p>
+            </div>
+          }
           <div className="w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row">
             {resultNavs.map((item) => (
               <div

@@ -11,9 +11,9 @@ export const MatchOdds = ({ matchId }) => {
 
         const interval = setInterval(() => {
             fetchData();
-        }, 6000); // Refresh every 6 seconds
+        }, 6000); 
 
-        return () => clearInterval(interval); // Cleanup the interval on unmount
+        return () => clearInterval(interval); 
     }, []);
     const fetchData = async () => {
         try {

@@ -8,6 +8,7 @@ import { Info } from '../Comps/Info';
 import { MatchOdds } from '../Comps/MatchOdds';
 
 export const MatchResult = () => {
+    
     const navigateTo = useNavigate();
     const [currentItem, setCurrentItem] = useState("Scorecard");
     const [searchParams, setSearchParams] = useSearchParams();
@@ -77,7 +78,7 @@ export const MatchResult = () => {
                         {resultNavs.map((item) => {
                             const selected = currentItem === item;
                             return (
-                                <div onClick={() =>{ setCurrentItem(item)}} className={selected ? 'self-center cursor-pointer text-orange-800 font-bold' : 'text-gray-800 cursor-pointer'} key={item}>
+                                <div onClick={() => { setCurrentItem(item) }} className={selected ? 'self-center cursor-pointer text-orange-800 font-bold' : 'text-gray-800 cursor-pointer'} key={item}>
                                     {item}
                                 </div>
                             );
