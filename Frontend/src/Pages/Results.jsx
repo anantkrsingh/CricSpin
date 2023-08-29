@@ -236,7 +236,7 @@ export const Results = () => {
             <p>Loading...</p>
           ) : (
             currentItem === "Scorecard" ? (
-              <ScoreCard matchID={matchID}  />
+              <ScoreCard matchID={matchID} />
             ) : currentItem === "Live" ? (
               <Live matchID={matchID} />
             ) : currentItem === "Matchodds" ? (

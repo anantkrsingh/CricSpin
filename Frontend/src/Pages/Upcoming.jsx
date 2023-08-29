@@ -56,7 +56,7 @@ export const Upcoming = () => {
                    Object.values(filteredMatches).map((date, index) => {
                         return (
                             <div key={index}>
-                                <p className='text-white mt-2'>{date[0].Matchtime}</p>
+                                <p className='text-white mt-2'>{date[0].Matchtime.split("at")[0]}</p>
                                 {date.map((match, index) => (
                                     <UpcominMatch item={match} position={index} key={match.id} />
                                 ))}
