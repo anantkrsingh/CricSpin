@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import usePlayers from '../Comps/UsePlayers';
 import PlayerScoreCard from './PlayerScoreCard';
 
-export const ScoreCard = ({ matchID }) => {
+export const ScoreCard = ({ matchID}) => {
   const {players,loading} = usePlayers(matchID);
   
   const [showTeamAPlayers, setShowTeamAPlayers] = useState(true);
@@ -28,12 +28,12 @@ export const ScoreCard = ({ matchID }) => {
   }
   return (
     <div className="w-full flex flex-col justify-between">
-      <div className='w-full  mt-4 mb-2 flex justify-between euclidMedium '>
-        <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>
-          <h2 className="font-bold">{teamA}</h2>
+      <div className='w-full  mt-4 mb-2 flex justify-between euclidMedium text-sm '>
+        <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-blue-100 text-blue-800 font-bold px-2 py-2 rounded-md" : "bg-white rounded-md px-2 py-2 cursor-pointer"}>
+          <h2 className="font-bold">{teamA} {teamAPlayers[0]?.TeamRuns})</h2>
         </div>
         <div onClick={toggleTeamBPlayers} className={showTeamBPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>
-          <h2 className="font-bold">{teamB}</h2>
+          <h2 className="font-bold">{teamB} {teamBPlayers[0]?.TeamRuns})</h2>
         </div>
       </div>
       <div>
