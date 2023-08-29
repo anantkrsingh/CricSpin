@@ -33,7 +33,7 @@ export const Results = () => {
   const [myMatch, setMyMatch] = useState(null);
   const [jsonData, setJsonData] = useState(null)
   const [jsonRuns, setJsonRuns] = useState(null)
-  const [animation, setAnimation] = useState("six");
+  const [animation, setAnimation] = useState("loadingLottie");
   const [CRR, setCRR] = useState("N/A")
   const [RRR, setRRR] = useState("N/A")
 
@@ -176,7 +176,7 @@ export const Results = () => {
           <div className="">
             <p className="text-sm rounded-xl p-4 bg-blue-500 text-slate-200 flex items-center">
               <BsArrowLeft onClick={() => navigateTo(-1)} size={28} />
-              <h1 className='font-semibold pl-2'>{myMatch.MatchType} {myMatch?.TeamA} VS {myMatch?.TeamB}</h1>
+              <h1 className='font-semibold pl-2'>{myMatch?.MatchType} {myMatch?.TeamA} VS {myMatch?.TeamB}</h1>
             </p>
           </div>
           <div className='flex justify-between text-black p-4'>
