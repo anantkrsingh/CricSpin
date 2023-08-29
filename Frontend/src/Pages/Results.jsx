@@ -32,9 +32,12 @@ export const Results = () => {
   const [loading, setLoading] = useState(true);
   const [myMatch, setMyMatch] = useState(null);
   const [jsonData, setJsonData] = useState(null)
-  const [animation, setAnimation] = useState("loadingLottie");
+  const [jsonRuns, setJsonRuns] = useState(null)
+  const [animation, setAnimation] = useState("six");
+  const [CRR, setCRR] = useState("N/A")
+  const [RRR, setRRR] = useState("N/A")
 
-  
+
 
   const animationMap = {
     out,
@@ -122,13 +125,28 @@ export const Results = () => {
           filteredMatches[0].jsondata = "{}";
         }
         setJsonData(JSON.parse(filteredMatches[0].jsondata).jsondata);
-        console.log(jsonData?.wicketA);
-        
+        const data = jsonData;
+
+        const title = data.title;
+        const CRRRegex = /C\.RR:\s*(\d+(\.\d+)?)/i;
+        const RRRRegex = /R\.RR:\s*(\d+(\.\d+)?)/i;
+
+        const CRRMatch = title.match(CRRRegex);
+        const RRRMatch = title.match(RRRRegex);
+
+        const CRR1 = CRRMatch ? CRRMatch[1] : "N/A";
+        const RRR1 = RRRMatch ? RRRMatch[1] : "N/A";
+        setCRR(CRR1)
+        setRRR(RRR1)
+
       } catch (error) {
         console.error('Error parsing JSON:', error.message);
       }
       handleAnimation(jsonData.score)
-      console.log(jsonData.score);
+      const title = jsonData.title;
+      const substringIndex = title.indexOf("Match");
+      const str = substringIndex !== -1 ? title.substring(0, substringIndex) : title;
+      console.log(str);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -158,7 +176,7 @@ export const Results = () => {
           <div className="">
             <p className="text-sm rounded-xl p-4 bg-blue-500 text-slate-200 flex items-center">
               <BsArrowLeft onClick={() => navigateTo(-1)} size={28} />
-              <h1 className='font-semibold text-lg pl-2'>{myMatch?.TeamA} VS {myMatch?.TeamB} {myMatch?.Title}</h1>
+              <h1 className='font-semibold pl-2'>{myMatch.MatchType} {myMatch?.TeamA} VS {myMatch?.TeamB}</h1>
             </p>
           </div>
           <div className='flex justify-between text-black p-4'>
@@ -173,28 +191,36 @@ export const Results = () => {
           </div>
 
           {loading ? <div className='text-black'>Loading</div> :
-            <div className='flex items-center rounded-xl text-black bg-white shadow-lg p-2  mx-1 justify-between'>
-              <div className='flex flex-col'>
-                <p>{jsonData?.wicketA}</p>
-                <p className='text-gray-700'> Overs : {jsonData?.oversA}</p>
+            <div className='flex items-center justify-center mt-10 relative'>
+              <div className='flex w-full  absolute items-center rounded-xl text-black bg-white shadow-lg p-1  mx-1 justify-between'>
+                <div className='flex flex-col mx-3'>
+                  <p>{jsonData?.wicketA}</p>
+                  <p className='text-gray-700'> Overs : {jsonData?.oversA}</p>
+                </div>
+                <p className='mx-3' >  {jsonData?.wicketB}</p>
               </div>
+              <div className='flex w-full items-center justify-center absolute'>
+                <div className='relative'>
+                  {
+                    animationMap[animation] && animation != "loadingLottie" && <Lottie
+                      loop
+                      play
+                      animationData={animationMap[animation]}
+                      style={{ width: 160, height: 103, position: "absolute", zIndex: "1" }}
+                    />
+                  }
+                  <CircleOverlay style={{ position: 'absolute', zIndex: 2 }} />
+                </div>
 
-              <div className='relative '>
-                {
-                  animationMap[animation] && animation != "loadingLottie" && <Lottie 
-                    loop
-                    play
-                    animationData={animationMap[animation]}
-                    style={{ width: 160, height: 103 ,position:"absolute",zIndex:"1"}}
-                  />
-                }
 
-                <CircleOverlay  style={{ position: 'absolute', zIndex: 2 }} />
               </div>
-
-              <p >  {jsonData?.wicketB}</p>
             </div>
           }
+          <div className='w-full mt-10 flex p-2 justify-between'
+          >
+            <p>CRR : {CRR}</p>
+            <p>RRR : {RRR}</p>
+          </div>
           <div className="w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row">
             {resultNavs.map((item) => (
               <div
