@@ -26,9 +26,9 @@ export const MatchResults = () => {
         }
     };
     return (
-        <div className=''
+        <div className='w-full top-8 font-[Roboto] ov  relative'
         >
-            <div className=' fixed overflow-hidden top-0 w-[350px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center items-center'>
+            <div className='fixed overflow-hidden top-0 w-[350px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center items-center'>
                 <div className='p-4 euclidMedium' >Cricspin</div>
                 <img src={Logo} className='w-[60px]  ' alt="" />
                 <div className='p-4 euclidMedium'>

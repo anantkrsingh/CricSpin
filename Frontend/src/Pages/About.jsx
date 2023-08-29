@@ -8,7 +8,7 @@ export const About = () => {
     const [aboutShown, setAboutShown] = useState(false)
     const [privacyShown, setprivacyShown] = useState(false)
     return (
-        <div className='w-full pl-2 top-16 m-2 font-[Roboto] transition-all duration-150 ease-in-out   relative'>
+        <div className='w-full top-8 font-[Roboto] ov  relative'>
             <div className=' fixed overflow-hidden top-0 w-[350px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center items-center'>
                 <div className='p-4 euclidMedium' >Cricspin</div>
                 <img src={Logo} className='w-[60px]  ' alt="" />
@@ -16,7 +16,10 @@ export const About = () => {
                     LiveLine
                 </div>
             </div>
-            <div className='bg-white rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer' >
+            <div className='ml-4 mt-10'>
+
+            
+            <div className='bg-white  rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer' >
                 <div onClick={() => setAboutShown(!aboutShown)} className='flex justify-between items-center transition-all duration-150 ease-in-out '>
                     <p>About</p>
                     <BsCaretRight />
@@ -128,6 +131,7 @@ export const About = () => {
                     <a href="mailto:alwaysrank01@gmail.com">Contact us</a>
                     <BsCaretRight />
                 </div>
+            </div>
             </div>
         </div>
     )
