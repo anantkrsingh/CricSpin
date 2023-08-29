@@ -1,11 +1,21 @@
 import React, { useState } from 'react'
+import Logo from '../assets/logo.png';
+
 
 import { BsCaretRight } from 'react-icons/bs'
 
 export const About = () => {
     const [aboutShown, setAboutShown] = useState(false)
+    const [privacyShown, setprivacyShown] = useState(false)
     return (
-        <div className='w-full top-16 m-2 font-[Roboto] transition-all duration-150 ease-in-out   relative'>
+        <div className='w-full pl-2 top-16 m-2 font-[Roboto] transition-all duration-150 ease-in-out   relative'>
+            <div className=' fixed overflow-hidden top-0 w-[350px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center items-center'>
+                <div className='p-4 euclidMedium' >Cricspin</div>
+                <img src={Logo} className='w-[60px]  ' alt="" />
+                <div className='p-4 euclidMedium'>
+                    LiveLine
+                </div>
+            </div>
             <div className='bg-white rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer' >
                 <div onClick={() => setAboutShown(!aboutShown)} className='flex justify-between items-center transition-all duration-150 ease-in-out '>
                     <p>About</p>
@@ -21,12 +31,77 @@ export const About = () => {
                 </div>
             </div>
 
-            <div onClick={() => window.open("https://rishabhcricket.wixsite.com/my-site-1/privacy-policy", "_blank")} className='bg-white mt-4 rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer'>
-                <div className='flex justify-between items-center transition-all duration-150 ease-in-out '>
-                    <a target='_blank' href="https://rishabhcricket.wixsite.com/my-site-1/privacy-policy">Privacy Policy</a>
+            <div className='bg-white mt-4 rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer' >
+                <div onClick={() => setprivacyShown(!privacyShown)} className='flex justify-between items-center transition-all duration-150 ease-in-out '>
+                    <p>Privacy Policy</p>
                     <BsCaretRight />
                 </div>
+                <div className={privacyShown ? '' : "hidden"}>
+                    Thank you for using CricSpin, the cricket live score app. We value your privacy and are committed to protecting your personal information. This privacy policy explains how we handle your information when you use our app.
+
+                    <br />
+
+                    1. Information we do not collect
+
+
+                        <br />
+                    We do not collect any personal information from you when you use our app, such as your name, email address, or location. We also do not collect any usage information, such as which features you use or how long you use the app.
+
+<br /><br />
+
+                    2. How we use your information
+
+
+
+                    Since we do not collect any information from you, we do not use your information for any purposes.
+
+<br /><br />
+
+                    3. How we share your information
+
+
+
+                    Since we do not collect any information from you, we do not share your information with anyone.
+
+                    <br /><br />
+
+
+                    4. Security
+
+
+
+                    Even though we do not collect any information from you, we still take reasonable measures to protect your privacy and the security of our app.
+
+                    <br /><br />
+
+
+                    5. Children's privacy
+
+
+
+                    Our app is not intended for children under the age of 13. We do not knowingly collect or solicit personal information from children under 13.
+
+                    <br /><br />
+
+
+                    6. Changes to this policy
+
+
+
+                    We may update this privacy policy from time to time. If we make significant changes, we will notify you by email or by posting a notice in our app.
+
+
+                    <br /><br />
+
+                    7. Contact us
+
+
+
+                    If you have any questions or concerns about our privacy policy, please contact us at alien01plays@gmail.com
+                </div>
             </div>
+
+            
 
             <div onClick={() => window.open("mailto:alien01plays@gmail.com")} className='bg-white mt-4 rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer'>
                 <div className='flex justify-between items-center transition-all duration-150 ease-in-out '>

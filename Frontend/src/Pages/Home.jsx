@@ -74,8 +74,8 @@ export default function Home() {
           loading ? (
             <p className='text-white p-4'>Loading...</p> // Show a loading message or spinner while fetching data
           ) : (
-            upcomingMatches.slice(0, 3).map((item) => (
-              <UpcominMatch item={item} key={item.id} />
+            upcomingMatches.slice(0, 3).map((item,index) => (
+              <UpcominMatch item={item} position={index} key={item.id} />
             ))
           )
         }
