@@ -44,7 +44,7 @@ export const ScoreCard = ({ matchID }) => {
                 <th className="text-start p-2">Batter</th>
                 <th className="text-right p-2">R</th>
                 <th className="text-right p-2">B</th>
-                <th className="text-right p-2">2s</th>
+                <th className="text-right p-2">4s</th>
                 <th className="text-right p-4">6s</th>
               </tr>
             </thead>
@@ -62,7 +62,7 @@ export const ScoreCard = ({ matchID }) => {
                 <th className="text-start p-2">Batter</th>
                 <th className="text-right p-2">R</th>
                 <th className="text-right p-2">B</th>
-                <th className="text-right p-2">2s</th>
+                <th className="text-right p-2">4s</th>
                 <th className="text-right p-4">6s</th>
               </tr>
             </thead>

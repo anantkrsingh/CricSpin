@@ -6,7 +6,7 @@ const CircleOverlay = () => {
 
   useEffect(() => {
     const animation = requestAnimationFrame(() => {
-      setRotationAngle((prevAngle) => prevAngle + 1); // Adjust the rotation speed as needed
+      setRotationAngle((prevAngle) => prevAngle + .5); 
     });
 
     return () => cancelAnimationFrame(animation);
@@ -15,17 +15,17 @@ const CircleOverlay = () => {
   return (
     <Stage width={160} height={103}>
       <Layer>
-        
+
         <Circle
-          x={80} 
-          y={51.5} 
-          radius={40} 
-          stroke="#0093E9" 
-          strokeWidth={3} 
+          x={80}
+          y={51.5}
+          radius={40}
+          stroke="#0093E9"
+          strokeWidth={3}
           dash={[3, 3]}
           fill="#80D0C7" // Background color
           opacity={1}
-          rotation={rotationAngle} 
+          rotation={rotationAngle}
         />
       </Layer>
     </Stage>

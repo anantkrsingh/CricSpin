@@ -39,45 +39,49 @@ export default function Home() {
   };
 
   return (
-    <div className='w-full top-8 font-[Roboto]  relative'>
-      <div className='w-full flex self-center text-white justify-center items-center'>
+    <div className='w-full top-8 font-[Roboto] ov  relative'>
+      <div className=' fixed overflow-hidden top-0 w-[350px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center items-center'>
         <div className='p-4 euclidMedium' >Cricspin</div>
         <img src={Logo} className='w-[60px]  ' alt="" />
         <div className='p-4 euclidMedium'>
           LiveLine
         </div>
       </div>
-      <div className='w-full h-[1px] bg-gray-300 mt-4 mb-4'></div>
-      <h4 className=' text-white m-2'>Live Matches</h4>
-      {
-        loading ? (
-          <p className='p-4 text-white'>Loading...</p> 
-        ) : (
-          <Carousel autoPlay interval={"5000"} transitionTime={"500"} showStatus={false} showIndicators={true}>
-            {liveMatches.map((item) => (
-              <LiveMatches match={item} key={item.id} />
-            ))}
-          </Carousel>
-        )
-      }
-      <Link to="/upcoming" className='w-full justify-between flex'>
-        
-      <h6 className=' items-center justify-center text-white m-2'>Upcoming Matches</h6>
-      <div className='flex cursor-pointer items-center text-white '>
-        See All <AiOutlineDoubleRight  className='ml-2' color='white'/>
+
+      <div className='w-full pl-4  top-8 font-[Roboto] ov  relative'>
+
+        <div className='w-full  mt-10 h-[1px] bg-gray-300 mb-4'></div>
+        <h4 className=' text-white m-2'>Live Matches</h4>
+        {
+          loading ? (
+            <p className='p-4 text-white'>Loading...</p>
+          ) : (
+            <Carousel autoPlay interval={"5000"} transitionTime={"500"} showStatus={false} showIndicators={true}>
+              {liveMatches.map((item) => (
+                <LiveMatches match={item} key={item.id} />
+              ))}
+            </Carousel>
+          )
+        }
+        <Link to="/upcoming" className='w-full justify-between flex'>
+
+          <h6 className=' items-center justify-center text-white m-2'>Featured Matches</h6>
+          <div className='flex cursor-pointer items-center text-white '>
+            See All <AiOutlineDoubleRight className='ml-2' color='white' />
+          </div>
+        </Link>
+        {
+          loading ? (
+            <p className='text-white p-4'>Loading...</p> // Show a loading message or spinner while fetching data
+          ) : (
+            upcomingMatches.slice(0, 3).map((item) => (
+              <UpcominMatch item={item} key={item.id} />
+            ))
+          )
+        }
+        <h6 className='items-center text-white mt-4 mx-4 '>Series</h6>
+        <Series />
       </div>
-      </Link>
-      {
-        loading ? (
-          <p className='text-white p-4'>Loading...</p> // Show a loading message or spinner while fetching data
-        ) : (
-          upcomingMatches.slice(0,3).map((item) => (
-            <UpcominMatch item={item} key={item.id} />
-          ))
-        )
-      }
-      <h6 className='items-center text-white mt-4 mx-4 '>Series</h6>
-      <Series/>
     </div>
   );
 }
