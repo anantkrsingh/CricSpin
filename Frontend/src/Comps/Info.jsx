@@ -2,9 +2,10 @@ import React from 'react'
 import { AiFillCalendar } from 'react-icons/ai'
 import { HiLocationMarker } from 'react-icons/hi'
 import { getDatabase } from "firebase/database";
+import { PlayerXI } from './PlayerXI';
 
-export const Info = ({ match }) => {
- 
+export const Info = ({ match, matchId }) => {
+
   return (
     <div className='w-full euclidMedium text-black flex flex-col p-2'>
       <p className=' p-2 '>{match?.Result}</p>
@@ -26,7 +27,7 @@ export const Info = ({ match }) => {
         </>}
 
       </div>
-
+      <PlayerXI matchId={matchId} />
     </div>
   )
 }

@@ -137,12 +137,12 @@ export const About = () => {
                 </div>
                 <div className='mt-4 mb-4'>
 
-                {
-                    bannerData && <a target='_blank' className='mt-4' href={bannerData[1].url}>
+                    {
+                        bannerData && <a target='_blank' className='mt-4' href={bannerData[1].url}>
 
-                        <img src={bannerData[1].image} />
-                    </a>
-                }
+                            <img src={bannerData[1].image} />
+                        </a>
+                    }
                 </div>
             </div>
         </div>

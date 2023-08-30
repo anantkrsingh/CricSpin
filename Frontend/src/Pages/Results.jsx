@@ -170,7 +170,7 @@ export const Results = () => {
 
   return (
     <>
-      
+
       <div className="max-w-[375px] p-2  flex left-[50%]  m-auto overflow-hidden">
         <div className="flex z-0 h-screen p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
           <div className="">
@@ -223,13 +223,19 @@ export const Results = () => {
           </div>
           <div className="w-full bg-gray-100 self-center items-center justify-between mt-4 mb-2 px-4 flex flex-row">
             {resultNavs.map((item) => (
-              <div
-                onClick={() => setCurrentItem(item)}
-                className={currentItem === item ? 'self-center cursor-pointer text-orange-800 font-bold' : 'text-gray-800 cursor-pointer'}
-                key={item}
-              >
-                {item}
-              </div>
+              <>
+                <div
+                  onClick={() => setCurrentItem(item)}
+                  className={currentItem === item ? 'self-center cursor-pointer font-[600] text-[1.3rem] subpixel-antialiased text-amber-600 transition duration-[0.3s] ease-in-out text-amber-600 after:content-[""] after:w-[30%] after:h-[2px] after:bg-amber-700 after:absolute after:bottom-[-4px]  after:left-[20px] font-bold' : 'text-gray-800 cursor-pointer'}
+                  key={item}
+                >
+                  {item}
+                  <div className={currentItem === item ? 'bg-amber-600 w-auto h-[2px]':""}>
+
+                </div>
+                </div>
+                
+              </>
             ))}
           </div>
           {loading ? (
@@ -242,7 +248,7 @@ export const Results = () => {
             ) : currentItem === "Matchodds" ? (
               <MatchOdds matchId={matchID} />
             ) : (
-              <Info match={myMatch} />
+              <Info match={myMatch} matchId={matchID} />
             ))
           }
         </div>
