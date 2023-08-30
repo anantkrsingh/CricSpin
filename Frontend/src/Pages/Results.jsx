@@ -107,7 +107,7 @@ export const Results = () => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 2000);
+    }, 500);
 
     return () => {
       if (interval) {
