@@ -13,7 +13,7 @@ import zero from '../assets/json/zero.json';
 import one from '../assets/json/one.json';
 import two from '../assets/json/two.json';
 import three from '../assets/json/three.json';
-import dead_ball from '../assets/json/dead_ball.json';
+import deadball from '../assets/json/dead_ball.json';
 import over from '../assets/json/over.json';
 import wicket from '../assets/json/wicket.json';
 import wide from '../assets/json/wide.json';
@@ -48,7 +48,7 @@ export const Results = () => {
     one,
     two,
     three,
-    dead_ball,
+    deadball,
     over,
     wicket,
     wide,
@@ -59,7 +59,7 @@ export const Results = () => {
 
 
   const handleAnimation = (strf) => {
-    let animationName = 'loadingLottie';
+    let animationName;
     switch (strf) {
       case '4-4-4':
         animationName = 'four';
@@ -77,7 +77,7 @@ export const Results = () => {
         animationName = 'three';
         break;
       case 'Ball':
-        animationName = 'dead_ball';
+        animationName = 'deadball';
         break;
       case 'Over':
         animationName = 'over';
@@ -106,7 +106,7 @@ export const Results = () => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 1000);
+    }, 2000);
 
     return () => {
       if (interval) {
@@ -129,12 +129,14 @@ export const Results = () => {
 
       try {
         jsonData = JSON.parse(sanitizedJsonData).jsondata;
+        handleAnimation(jsonData?.score);
+        console.log("Score" + jsonData?.score);
       } catch (error) {
         console.error("Error parsing JSON data:", error);
         return null;
       }
       setJsonData(jsonData)
-      handleAnimation(jsonData.score)
+
       const title = jsonData.title;
       const substringIndex = title.indexOf("Match");
       const str = substringIndex !== -1 ? title.substring(0, substringIndex) : title;
@@ -207,7 +209,7 @@ export const Results = () => {
                 <div className='relative'>
 
                   {
-                    animationMap[animation] && animation != "loadingLottie" && <Lottie
+                    animation != "loadingLottie" && <Lottie
                       loop
                       play
                       animationData={animationMap[animation]}
