@@ -22,6 +22,7 @@ import six from '../assets/json/six.json';
 import loadingLottie from '../assets/json/loading.json';
 
 import CircleOverlay from '../Comps/CircleOverlay';
+import { BottomBanner } from '../Comps/BottomBanner';
 
 export const Results = () => {
   const navigateTo = useNavigate();
@@ -134,17 +135,17 @@ export const Results = () => {
       const substringIndex = title.indexOf("Match");
       const str = substringIndex !== -1 ? title.substring(0, substringIndex) : title;
       console.log(str);
-      
-        const CRRRegex = /C\.RR:\s*(\d+(\.\d+)?)/i;
-        const RRRRegex = /R\.RR:\s*(\d+(\.\d+)?)/i;
 
-        const CRRMatch = title.match(CRRRegex);
-        const RRRMatch = title.match(RRRRegex);
+      const CRRRegex = /C\.RR:\s*(\d+(\.\d+)?)/i;
+      const RRRRegex = /R\.RR:\s*(\d+(\.\d+)?)/i;
 
-        const CRR1 = CRRMatch ? CRRMatch[1] : "N/A";
-        const RRR1 = RRRMatch ? RRRMatch[1] : "N/A";
-        setCRR(CRR1)
-        setRRR(RRR1)
+      const CRRMatch = title.match(CRRRegex);
+      const RRRMatch = title.match(RRRRegex);
+
+      const CRR1 = CRRMatch ? CRRMatch[1] : "N/A";
+      const RRR1 = RRRMatch ? RRRMatch[1] : "N/A";
+      setCRR(CRR1)
+      setRRR(RRR1)
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -169,6 +170,7 @@ export const Results = () => {
 
   return (
     <>
+      
       <div className="max-w-[375px] p-2  flex left-[50%]  m-auto overflow-hidden">
         <div className="flex z-0 h-screen p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
           <div className="">
@@ -245,6 +247,7 @@ export const Results = () => {
           }
         </div>
       </div>
+
     </>
   );
 };

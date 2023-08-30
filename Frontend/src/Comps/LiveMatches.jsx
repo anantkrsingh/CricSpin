@@ -55,7 +55,7 @@ export const LiveMatches = ({ match }) => {
             <Link to={{
                 pathname: `/results`,
                 search: `matchId=${match.MatchId}&seriesId=${match.seriesid}`
-            }} className='w-full rounded-2xl overflow-hidden  bg-white flex flex-col'>
+            }} className='w-full mt-2 rounded-2xl overflow-hidden  bg-white flex flex-col'>
                 <div className='flex justify-between'>
                     <p className='p-2 text-sm euclidMedium'>{match.Title}</p>
                     {match.isfinished === 1 ? <div></div> : <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>}

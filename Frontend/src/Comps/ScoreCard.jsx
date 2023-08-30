@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import usePlayers from '../Comps/UsePlayers';
 import PlayerScoreCard from './PlayerScoreCard';
+import { BottomBanner } from './BottomBanner';
 
 export const ScoreCard = ({ matchID}) => {
   const {players,loading} = usePlayers(matchID);
@@ -28,6 +29,9 @@ export const ScoreCard = ({ matchID}) => {
   }
   return (
     <div className="w-full flex flex-col justify-between">
+      <div className='fixed w-full  bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
+        <BottomBanner />
+      </div>
       <div className='w-full  mt-4 mb-2 flex justify-between euclidMedium text-sm '>
         <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-blue-100 text-blue-800 font-bold px-2 py-2 rounded-md" : "bg-white rounded-md px-2 py-2 cursor-pointer"}>
           <h2 className="font-bold">{teamA} {teamAPlayers[0]?.TeamRuns})</h2>

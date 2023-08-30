@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchData();
-    
+
   }, []);
 
   const fetchData = async () => {
@@ -56,7 +56,14 @@ export default function Home() {
       <div className='w-full pl-4  top-8 font-[Roboto] ov  relative'>
 
 
-        <h4 className=' text-white m-2'>Live Matches</h4>
+        {/* <h4 className=' text-white m-2'>Live Matches</h4> */}
+        <Link to="/live" className='w-full justify-between flex'>
+
+          <h6 className=' items-center justify-center text-white m-2'>Live Matches</h6>
+          <div className='flex cursor-pointer items-center text-white '>
+            See All <AiOutlineDoubleRight className='ml-2' color='white' />
+          </div>
+        </Link>
         {
           loading ? (
             <p className='p-4 text-white'>Loading...</p>

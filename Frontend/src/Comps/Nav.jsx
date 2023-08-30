@@ -33,28 +33,31 @@ export const Nav = () => {
     ];
 
     return (
-        <nav className='flex z-10 items-center justify-center w-[375px] first-line:  self-center  pl-4 pr-4 fixed bottom-0  bg-[#513BB2] bg-opacity-60 md:left-0  md:w-[100vw]'>
-            <ul className='flex transition-all  duration-300 ease-linear'>
+        <nav className='flex z-10 items-center justify-center w-[375px] first-line:  self-center  pl-4 pr-4 fixed bottom-0  bg-blue-500 md:left-0  md:w-[100vw]'>
+            <ul className='flex transition-all flex-1  duration-300 ease-linear'>
                 {navs.map((item) => {
                     const isSelected = item.title === nav;
                     return (
                         <li
                             className={
-                                'm-2 p-2 transition-all duration-300 ease-linear bg-blue-800 rounded-2xl cursor-pointer flex items-center slide-in'
+                                'm-1 p-1 flex-1 transition-all duration-300 ease-linear rounded-2xl cursor-pointer flex flex-row  justify-center items-center slide-in'
 
                             }
                             onClick={() => setNav(item.title)}
                         >
-                            <FontAwesomeIcon className='m-2 text-white' size='sm' icon={item.icon} />
+                            <div className='flex flex-col items-center justify-center self-center'>
+
+                            <FontAwesomeIcon className='m-2 self-center text-white' size='sm' icon={item.icon} />
                             <p
                                 className={
-                                    'block text-white mr-2 text-sm hover:text-white'
+                                    'block text-white text-sm hover:text-white'
                                 }
                                 onClick={() => setNav(item.title)}
 
                             >
                                 {item.title}
                             </p>
+                            </div>
                         </li>
                     );
                 })}

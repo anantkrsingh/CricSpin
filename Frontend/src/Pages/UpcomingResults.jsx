@@ -77,8 +77,8 @@ export const UpcomingResults = () => {
 
     return (
         <>
-            <div className="max-w-[375px] p-2  flex left-[50%] overflow-auto  m-auto ">
-                <div className="flex z-0 h-screen p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
+            <div className="max-w-[375px] p-2  flex left-[50%]  overflow-auto  m-auto ">
+                <div className="flex z-0 overflow-y-scroll  p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out ">
                     <div className="">
                         <p className="text-sm rounded-xl p-4 bg-blue-500 text-slate-200 flex items-center">
                             <BsArrowLeft onClick={() => navigateTo(-1)} size={28} />
@@ -131,7 +131,10 @@ export const UpcomingResults = () => {
                     </div>
 
                     {
-                        bannerData && <img src={bannerData[1].image} />
+                        bannerData && <a target='_blank' href={bannerData[1].url}>
+
+                            <img  src={bannerData[1].image} />
+                        </a> 
                     }
 
 

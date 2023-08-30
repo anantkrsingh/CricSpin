@@ -4,6 +4,8 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { LiveMatches } from '../Comps/LiveMatches';
 import { FinishedMatches } from '../Comps/FinishedMatches';
 import { PointsTable } from '../Comps/PointsTable'; // Import the PointsTable component
+import { Nav } from '../Comps/Nav';
+import { BottomBanner } from '../Comps/BottomBanner';
 
 export const SeriesDetails = () => {
   const navigateTo = useNavigate();
@@ -36,7 +38,11 @@ export const SeriesDetails = () => {
 
   return (
     <>
-      <div className='max-w-[375px] flex euclidMedium md:max-w-[400px] bg left-[50%]  m-auto p-4 overflow-y-auto'>
+      <div className='max-w-[375px] flex euclidMedium md:max-w-[400px]  bg left-[50%]  m-auto p-4 overflow-y-auto'>
+        <div className='fixed w-full bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
+
+      <BottomBanner/>
+        </div>
         <BsArrowLeft className='text-white' onClick={() => navigateTo(-1)} size={28} />
         <div className='ml-2 text-white'>{name}</div>
       </div>
@@ -75,6 +81,7 @@ export const SeriesDetails = () => {
             <PointsTable seriesId={id} /> // Render the PointsTable component if selected is "POINTS TABLE"
           )}
         </div>
+      
       </div>
     </>
   );

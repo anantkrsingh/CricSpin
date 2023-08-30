@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { MatchOdd } from './MatchOdd';
+import { BottomBanner } from './BottomBanner';
 
 export const MatchOdds = ({ matchId }) => {
 
@@ -48,6 +49,9 @@ export const MatchOdds = ({ matchId }) => {
     return (
         !loading &&
         <div className='flex flex-col'>
+            <div className='fixed w-full  bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
+        <BottomBanner />
+      </div>
             <div className='flex w-full justify-between p-2'>
                 <div onClick={toggleTeamAPlayers} className={showTeamAPlayers ? "bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-md" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>
                     <h2 className="text-lg font-bold">1ST INNINGS</h2>
