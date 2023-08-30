@@ -6,6 +6,10 @@ import { BottomBanner } from "./BottomBanner";
 export const Live = React.memo(({ matchID }) => {
   const [match, setMatch] = useState(null);
   const [loading, setLoading] = useState(true);
+  const givenDateTime = new Date();
+
+  const currentDateTime = new Date();
+
 
   useEffect(() => {
     fetchData();
@@ -30,6 +34,7 @@ export const Live = React.memo(({ matchID }) => {
       );
       const data = await response.json();
       setMatch(data[0]);
+      const givenDateTime = new Date(match.Matchtime);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);

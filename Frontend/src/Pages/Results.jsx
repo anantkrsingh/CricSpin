@@ -105,7 +105,6 @@ export const Results = () => {
 
     const interval = setInterval(() => {
       fetchData();
-      setAnimation("loadinLottie")
     }, 1000);
 
     return () => {

@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom'
 
 export const LiveMatches = ({ match }) => {
     let jsonData = null;
+    const currentDate = new Date();
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const year = currentDate.getFullYear();
+    const formattedDate = `${day}-${month}-${year}`;
+    console.log(formattedDate);
+    const isLive = true;
+    if (match.Matchtime.trim() < formattedDate) {
+        isLive = false
+    }
+    console.log(isLive);
+
+
     try {
         if (match.jsondata === "") {
             match.jsondata = "{}";
@@ -58,7 +71,7 @@ export const LiveMatches = ({ match }) => {
             }} className='w-full mt-2 rounded-2xl overflow-hidden  bg-white flex flex-col'>
                 <div className='flex justify-between'>
                     <p className='p-2 text-sm euclidMedium'>{match.Title}</p>
-                    {match.isfinished === 1 ? <div></div> : <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>}
+                    {match.isfinished === 1 && !isLive ? <div></div> : <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>}
 
                 </div>
 

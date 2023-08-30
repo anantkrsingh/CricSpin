@@ -5,7 +5,7 @@ import { Series } from './Series'
 import { About } from './About'
 import { MatchResults } from './MatchResults'
 import { UpcominMatch } from '../Comps/UpcominMatch'
-import { Upcoming } from './Upcoming'
+import { Upcoming } from '../Comps/Upcoming'
 
 export const Dash = () => {
     const {nav} = useContext(MyContext)
@@ -14,10 +14,7 @@ export const Dash = () => {
             case "Home" : return( <Home/> )
             case "Results" :return( <MatchResults/>)
             case "Upcoming" :return(
-                <div>
-
-                    <Upcoming/>
-                </div>
+                <Upcoming/>
                 )
             default: return( <About/> )
         }
