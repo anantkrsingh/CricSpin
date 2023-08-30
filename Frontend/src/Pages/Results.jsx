@@ -13,7 +13,8 @@ import zero from '../assets/json/zero.json';
 import one from '../assets/json/one.json';
 import two from '../assets/json/two.json';
 import three from '../assets/json/three.json';
-import deadball from '../assets/json/dead_ball.json';
+import deadball from '../assets/json/deadball.json';
+import ball from '../assets/json/deadball.json';
 import over from '../assets/json/over.json';
 import wicket from '../assets/json/wicket.json';
 import wide from '../assets/json/wide.json';
@@ -48,7 +49,7 @@ export const Results = () => {
     one,
     two,
     three,
-    deadball,
+    ball,
     over,
     wicket,
     wide,
@@ -77,7 +78,7 @@ export const Results = () => {
         animationName = 'three';
         break;
       case 'Ball':
-        animationName = 'deadball';
+        animationName = 'ball';
         break;
       case 'Over':
         animationName = 'over';
