@@ -185,12 +185,12 @@ export const Results = () => {
           </div>
           <div className='flex justify-between text-black p-4'>
             <div className='flex items-center'>
-              <span>{myMatch?.TeamA}</span>
-              <img className='rounded-full mr-4 border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${myMatch?.TeamAImage}`} alt="" />
+              <span>{jsonData?.teamA}</span>
+              <img className='rounded-full mr-1 border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${jsonData?.TeamABanner}`} alt="" />
             </div>
             <div className='flex items-center'>
-              <img className=' mr-4 rounded-full border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${myMatch?.TeamBImage}`} alt="" />
-              <span>{myMatch?.TeamB}</span>
+              <img className=' mr-1 rounded-full border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${jsonData?.TeamBBanner}`} alt="" />
+              <span>{jsonData?.teamB}</span>
             </div>
           </div>
 
@@ -198,13 +198,14 @@ export const Results = () => {
             <div className='flex items-center justify-center mt-10 relative'>
               <div className='flex w-full  absolute items-center rounded-xl text-black bg-white p-1  mx-1 justify-between'>
                 <div className='flex flex-col mx-3'>
-                  <p>{jsonData?.wicketB}</p>
+                  <p>{jsonData?.wicketA}</p>
                   <p className='text-gray-700'> Overs : {jsonData?.oversA}</p>
                 </div>
-                <p className='mx-3' >  {jsonData?.wicketA}</p>
+                <p className='mx-3' >  {jsonData?.wicketB}</p>
               </div>
               <div className='flex w-full items-center justify-center absolute'>
                 <div className='relative'>
+
                   {
                     animationMap[animation] && animation != "loadingLottie" && <Lottie
                       loop
@@ -213,7 +214,13 @@ export const Results = () => {
                       style={{ width: 160, height: 103, position: "absolute", zIndex: "1" }}
                     />
                   }
+                  {
+                    animationMap[animation] && animation === "loadingLottie" && <p className='absolute w-[50%] text-sm ml-10 mt-8 flex text-center justify-center z-100' style={{ position: 'absolute', zIndex: 2 }}>{jsonData?.score}</p>
+                  }
+
+
                   <CircleOverlay style={{ position: 'absolute', zIndex: 2 }} />
+
                 </div>
 
 

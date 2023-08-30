@@ -228,7 +228,7 @@ export const Live = React.memo(({ matchID }) => {
           })}
         </div>
 
-        <div className="w-full mb-16  euclid mt-4 bg-white rounded-md">
+        <div className="w-full mb-28  euclid mt-4 bg-white  rounded-md">
           <p className="border-b-2 p-2 border-gray-700">Summary</p>
           <pre className="p-2 whitespace-pre-wrap	text-center">{content}</pre>
         </div>

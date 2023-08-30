@@ -3,9 +3,9 @@ import usePlayers from '../Comps/UsePlayers';
 import PlayerScoreCard from './PlayerScoreCard';
 import { BottomBanner } from './BottomBanner';
 
-export const ScoreCard = ({ matchID}) => {
-  const {players,loading} = usePlayers(matchID);
-  
+export const ScoreCard = ({ matchID }) => {
+  const { players, loading } = usePlayers(matchID);
+
   const [showTeamAPlayers, setShowTeamAPlayers] = useState(true);
   const [showTeamBPlayers, setShowTeamBPlayers] = useState(false);
 
@@ -25,7 +25,7 @@ export const ScoreCard = ({ matchID}) => {
     setShowTeamAPlayers(false);
   };
   if (loading) {
-    return <p>Loading...</p>; 
+    return <p>Loading...</p>;
   }
   return (
     <div className="w-full flex flex-col justify-between">
@@ -40,7 +40,7 @@ export const ScoreCard = ({ matchID}) => {
           <h2 className="font-bold">{teamB} {teamBPlayers[0]?.TeamRuns})</h2>
         </div>
       </div>
-      <div>
+      <div className='mb-18'>
         {showTeamAPlayers && (
           <table className="w-full bg-white p-2 rounded-lg shadow-lg">
             <thead>

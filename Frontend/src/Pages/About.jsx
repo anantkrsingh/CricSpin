@@ -16,9 +16,9 @@ export const About = () => {
                 <div className='flex justify-between'>
 
                     <div className='p-4 euclidMedium items-center flex flex-row'>
-                        <p className='text-xl'>C</p>ricspin
+                        <p className='text-xl'>C</p>ricSpin
                     </div>
-                    <img src={Logo} className='w-[60px]  ' alt="" />
+                    <img src={Logo} onClick={()=>window.location.reload()} className='w-[60px]  ' alt="" />
                     <div className='p-4 euclidMedium items-center flex'>
                         <p className='text-xl'>L</p>iveLine
                     </div>

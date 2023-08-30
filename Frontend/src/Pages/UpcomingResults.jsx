@@ -9,6 +9,8 @@ import { Live } from '../Comps/Live';
 import { Info } from '../Comps/Info';
 import { MatchOdds } from '../Comps/MatchOdds';
 import { MyContext } from '../AppContext';
+import { faBaseball} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -85,7 +87,7 @@ export const UpcomingResults = () => {
                             <h1 className='font-semibold pl-2'>{myMatch?.MatchType} {myMatch?.TeamA} VS {myMatch?.TeamB}</h1>
                         </p>
                     </div>
-                    <div className='flex justify-between items-center  mt-10 overflow-hidden text-black p-2'>
+                    <div className='flex justify-between items-center  mt-2 overflow-hidden text-black p-2'>
                         <div className='flex items-center'>
                             <span>{myMatch?.TeamA}</span>
                             <img className='rounded-full mr-1 border-4  h-10 w-10 ' src={`${myMatch?.ImageUrl}${myMatch?.TeamAImage}`} alt="" />
@@ -109,6 +111,10 @@ export const UpcomingResults = () => {
 
                         <p className=' p-2 '>{myMatch?.Result}</p>
                         <div className='flex items-center p-4'>
+                        <FontAwesomeIcon className=' text-black' size='sm' icon={faBaseball} />
+                            <p className='ms-2 '>{myMatch?.Title}</p>
+                        </div>
+                        <div className='flex items-center p-4'>
                             <AiFillCalendar color='black' />
                             <p className='ms-2 '>{myMatch?.Matchtime}</p>
                         </div>
@@ -131,8 +137,8 @@ export const UpcomingResults = () => {
                     {
                         bannerData && <a className='mb-8 rounded-2xl overflow-hidden' target='_blank' href={bannerData[1].url}>
 
-                            <img  src={bannerData[1].image} />
-                        </a> 
+                            <img src={bannerData[1].image} />
+                        </a>
                     }
 
 
