@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Logo from '../assets/logo.png';
 
 
 import { BsCaretRight } from 'react-icons/bs'
+import { MyContext } from '../AppContext';
 
 export const About = () => {
+    const { bannerData } = useContext(MyContext)
+
     const [aboutShown, setAboutShown] = useState(false)
     const [privacyShown, setprivacyShown] = useState(false)
     return (
@@ -131,6 +134,15 @@ export const About = () => {
                         <a href="mailto:alwaysrank01@gmail.com">Contact us</a>
                         <BsCaretRight />
                     </div>
+                </div>
+                <div className='mt-4 mb-4'>
+
+                {
+                    bannerData && <a target='_blank' className='mt-4' href={bannerData[1].url}>
+
+                        <img src={bannerData[1].image} />
+                    </a>
+                }
                 </div>
             </div>
         </div>
