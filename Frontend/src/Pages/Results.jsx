@@ -175,7 +175,7 @@ export const Results = () => {
   return (
     <>
 
-      <div className="max-w-[375px] p-2  flex left-[50%]  m-auto overflow-hidden">
+      <div className="max-w-[375px]  flex left-[50%]  m-auto overflow-hidden">
         <div className="flex z-0 h-screen p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
           <div className="">
             <p className="text-sm rounded-xl p-4 bg-blue-500 text-slate-200 flex items-center">
