@@ -10,7 +10,7 @@ export const MatchOdd = ({ item }) => {
         <div className='text-sm w-full items-center bg-white flex rounded-sm m-2 p-2'>
             <div className='flex w-full justify-between flex-row'>
 
-                <div className='flex '>
+                <div className='flex items-center justify-center '>
                     <p className='bg-gray-200 px-2 py-2 rounded-md font-bold text-gray-900'>{item.Score}</p>
                     <div className='flex ml-4 items-center flex-col'>
                         <p>{item.overs}</p>
