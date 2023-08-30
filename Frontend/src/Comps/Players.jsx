@@ -46,7 +46,7 @@ export const Players = ({ matchID }) => {
                 <div className={showTeamBPlayers ? "" : "bg-white rounded-md px-4 py-2 cursor-pointer"}>
                     <h2 className="font-bold bg-blue-100 text-blue-800 font-bold px-2 py-2 rounded-md">{teamB}</h2>
                     {
-                        teamAPlayers.map((player) => {
+                        teamBPlayers.map((player) => {
                             return (
                                 <p className='mt-2'>{player.PlayerName}</p>
                             )
