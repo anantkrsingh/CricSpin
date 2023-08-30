@@ -37,11 +37,11 @@ export const Live = () => {
             </div>
             <div className='max-w-[375px] euclidMedium md:max-w-[400px] bg h-screen left-[50%] m-auto p-4 overflow-y-auto'>
                 {!loading &&
-                   
-                        upcomingMatches.map((match, index) => (
-                            <LiveMatches match={match} key={match.id} />
-                        ))
-                
+
+                    upcomingMatches.map((match, index) => (
+                        <LiveMatches match={match} key={match.id} />
+                    ))
+
 
                 }
             </div>

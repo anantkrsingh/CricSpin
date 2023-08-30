@@ -28,12 +28,19 @@ export const MatchResults = () => {
     return (
         <div className='w-full top-8 font-[Roboto] ov  relative'
         >
-            <div className='fixed overflow-hidden top-0 w-[350px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center items-center'>
-                <div className='p-4 euclidMedium' >Cricspin</div>
-                <img src={Logo} className='w-[60px]  ' alt="" />
-                <div className='p-4 euclidMedium'>
-                    LiveLine
+
+            <div className=' fixed overflow-hidden top-0 w-[358px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center flex-col items-center'>
+                <div className='flex justify-between'>
+
+                    <div className='p-4 euclidMedium items-center flex flex-row'>
+                        <p className='text-xl'>C</p>ricspin
+                    </div>
+                    <img src={Logo} className='w-[60px]  ' alt="" />
+                    <div className='p-4 euclidMedium items-center flex'>
+                        <p className='text-xl'>L</p>iveLine
+                    </div>
                 </div>
+                <div className='w-full  mt-1 h-[1px] bg-gray-300 '></div>
             </div>
             <p className='p-4 mt-10 text-white'>
 

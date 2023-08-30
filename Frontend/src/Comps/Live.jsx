@@ -116,7 +116,7 @@ export const Live = React.memo(({ matchID }) => {
       <div className='fixed w-full  bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
         <BottomBanner />
       </div>
-      <div className="w-full flex flex-col">
+      <div className="w-full flex mb-2 flex-col">
         <div className="w-full p-2 items-center euclid flex justify-between bg-white rounded-md">
           <div className="">Favourite</div>
           <div className="flex items-center font-bold  ">
@@ -129,7 +129,7 @@ export const Live = React.memo(({ matchID }) => {
             </p>
           </div>
         </div>
-        <div className="w-full flex-row euclid font-bold bg-white rounded-md mt-4 flex p-2">
+        <div className="w-full mb-2 flex-row euclid font-bold bg-white rounded-md mt-4 flex p-2">
           <div className="flex flex-col items-center">
             <p>Session </p>
             <div className="flex">
@@ -141,13 +141,13 @@ export const Live = React.memo(({ matchID }) => {
               </p>
             </div>
           </div>
-          <div className="w-full flex items-center flex-col">
+          <div className="w-full mb-2 flex items-center flex-col">
             Over
             <p className="px-2 py-1 mx-2 bg-green-100  text-green-800 rounded-lg">
               {jsonRuns.sessionOver}
             </p>{" "}
           </div>
-          <div className="flex flex-col bg-white rounded-md">
+          <div className="flex flex-col mb-2 bg-white rounded-md">
             <p className="text-center">Run x Ball</p>
             <div className="flex">
               <p className="px-2 py-1 mx-2 bg-red-100 text-red-800 rounded-lg">
@@ -224,7 +224,7 @@ export const Live = React.memo(({ matchID }) => {
           })}
         </div>
 
-        <div className="w-full mb-12  euclid mt-4 bg-white rounded-md">
+        <div className="w-full mb-16  euclid mt-4 bg-white rounded-md">
           <p className="border-b-2 p-2 border-gray-700">Summary</p>
           <pre className="p-2 whitespace-pre-wrap	text-center">{content}</pre>
         </div>

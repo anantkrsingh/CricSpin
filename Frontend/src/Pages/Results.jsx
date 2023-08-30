@@ -105,7 +105,8 @@ export const Results = () => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 2000);
+      setAnimation("loadinLottie")
+    }, 1000);
 
     return () => {
       if (interval) {
@@ -226,15 +227,15 @@ export const Results = () => {
               <>
                 <div
                   onClick={() => setCurrentItem(item)}
-                  className={currentItem === item ? 'self-center cursor-pointer font-[600] text-[1.3rem] subpixel-antialiased text-amber-600 transition duration-[0.3s] ease-in-out text-amber-600 after:content-[""] after:w-[30%] after:h-[2px] after:bg-amber-700 after:absolute after:bottom-[-4px]  after:left-[20px] font-bold' : 'text-gray-800 cursor-pointer'}
+                  className={currentItem === item ? 'self-center cursor-pointer font-[600] text-[1.3rem] subpixel-antialiased text-amber-600 transition duration-[0.3s] ease-in-out ' : 'text-gray-800 cursor-pointer'}
                   key={item}
                 >
                   {item}
-                  <div className={currentItem === item ? 'bg-amber-600 w-auto h-[2px]':""}>
+                  <div className={currentItem === item ? 'bg-amber-600 w-auto h-[2px]' : ""}>
 
+                  </div>
                 </div>
-                </div>
-                
+
               </>
             ))}
           </div>
