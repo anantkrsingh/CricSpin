@@ -77,8 +77,8 @@ export const UpcomingResults = () => {
 
     return (
         <>
-            <div className="max-w-[375px] p-2  flex left-[50%]  overflow-auto  m-auto ">
-                <div className="flex z-0 overflow-y-scroll  p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out ">
+            <div className="max-w-[375px] flex left-[50%]  overflow-auto  m-auto ">
+                <div className="flex relative z-0 overflow-y-scroll p-4 bg-gray-200  flex-col w-[375px] m-0 md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out ">
                     <div className="">
                         <p className="text-sm rounded-xl p-4 bg-blue-500 text-slate-200 flex items-center">
                             <BsArrowLeft onClick={() => navigateTo(-1)} size={28} />
@@ -104,9 +104,7 @@ export const UpcomingResults = () => {
                         </div>
 
                     </div>
-
-
-                    <div className='rounded-2xl bg-white flex flex-col m-2 mt-4  overflow-hidden'>
+                    <div className='rounded-2xl mb-8 bg-white flex flex-col m-2 mt-4  overflow-hidden'>
                         <p className='bg-blue-500 p-2 text-white euclidMedium text-lg'>Match Info </p>
 
                         <p className=' p-2 '>{myMatch?.Result}</p>
@@ -131,7 +129,7 @@ export const UpcomingResults = () => {
                     </div>
 
                     {
-                        bannerData && <a target='_blank' href={bannerData[1].url}>
+                        bannerData && <a className='mb-8 rounded-2xl overflow-hidden' target='_blank' href={bannerData[1].url}>
 
                             <img  src={bannerData[1].image} />
                         </a> 

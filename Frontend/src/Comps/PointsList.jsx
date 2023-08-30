@@ -8,9 +8,9 @@ export const PointsList = ({ item }) => {
             <td className="text-right text-blue-800 font-bold p-2">{item.Matches}</td>
             <td className="text-right p-2">{item.Won}</td>
             <td className="text-right p-2">{item.Lost}</td>
-            <td className="text-right p-4">{item.NR}</td>
-            <td className="text-right p-4">{item.Pts}</td>
-            <td className="text-right p-4">{item.NRR}</td>
+            <td className=" p-4">{item.NR}</td>
+            <td className=" p-4">{item.Pts}</td>
+            <td className=" p-4">{item.NRR}</td>
         </tr>
     )
 }

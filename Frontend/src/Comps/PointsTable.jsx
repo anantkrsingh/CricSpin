@@ -26,9 +26,9 @@ export const PointsTable = ({ seriesId }) => {
           <th className="text-right p-2">P</th>
           <th className="text-right p-2">W</th>
           <th className="text-right p-2">L</th>
-          <th className="text-right p-4">NR</th>
-          <th className="text-right p-4">PTS</th>
-          <th className="text-right p-4">NRR</th>
+          <th className="text-right p-2">NR</th>
+          <th className="text-right p-2">PTS</th>
+          <th className="text-right p-2">NRR</th>
         </tr>
       </thead>
       <tbody>
