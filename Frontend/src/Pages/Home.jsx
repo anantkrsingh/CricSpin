@@ -95,6 +95,7 @@ export default function Home() {
         }
         <h6 className='items-center text-white mt-4 mx-4 '>Series</h6>
         <Series />
+        {/* <div className='mt-10 mb-18'></div> */}
       </div>
     </div>
   );

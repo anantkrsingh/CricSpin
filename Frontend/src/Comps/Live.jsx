@@ -117,11 +117,11 @@ export const Live = React.memo(({ matchID }) => {
 
   return (
     <div className="flex w-full ">
-      <div className='fixed w-full  bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
+      <div className='fixed w-full bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
         <BottomBanner />
       </div>
       <div className="w-full flex mb-2 flex-col">
-        <div className="w-full p-2 items-center euclid flex justify-between bg-white rounded-md">
+        <div className="w-full p-2 mt-4 items-center euclid flex justify-between bg-white rounded-md">
           <div className="">Favourite</div>
           <div className="flex items-center font-bold  ">
             <p> {jsonRuns.fav}</p>
@@ -163,7 +163,7 @@ export const Live = React.memo(({ matchID }) => {
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-xl  shadow-lg mt-2 w-full">
+        <div className="bg-white rounded-xl  shadow-lg mt-2 mb-2 w-full">
           <table className="w-full ">
             <thead className="border-b-2 border-gray-700  border-collapse">
               <tr className="p-2">
@@ -217,7 +217,7 @@ export const Live = React.memo(({ matchID }) => {
           </div>
         </div>
         <ExpandableBanner />
-        <div className="flex euclid flex-row mt-4 bg-white rounded-md p-1 items-center">
+        <div className="flex euclid flex-row mt-2 mb-2 bg-white rounded-md p-1 items-center">
           Last 6 Balls
           {last6Balls.map((item) => {
             return (
@@ -228,7 +228,7 @@ export const Live = React.memo(({ matchID }) => {
           })}
         </div>
 
-        <div className="w-full mb-28  euclid mt-4 bg-white  rounded-md">
+        <div className="w-full mb-28  euclid mt-2 bg-white  rounded-md">
           <p className="border-b-2 p-2 border-gray-700">Summary</p>
           <pre className="p-2 whitespace-pre-wrap	text-center">{content}</pre>
         </div>
