@@ -13,7 +13,7 @@ import zero from '../assets/json/zero.json';
 import one from '../assets/json/one.json';
 import two from '../assets/json/two.json';
 import three from '../assets/json/three.json';
-import deadBall from '../assets/json/dead_ball.json';
+import dead_ball from '../assets/json/dead_ball.json';
 import over from '../assets/json/over.json';
 import wicket from '../assets/json/wicket.json';
 import wide from '../assets/json/wide.json';
@@ -48,7 +48,7 @@ export const Results = () => {
     one,
     two,
     three,
-    deadBall,
+    dead_ball,
     over,
     wicket,
     wide,
@@ -59,7 +59,7 @@ export const Results = () => {
 
 
   const handleAnimation = (strf) => {
-    let animationName = 'loading';
+    let animationName = 'loadingLottie';
     switch (strf) {
       case '4-4-4':
         animationName = 'four';
