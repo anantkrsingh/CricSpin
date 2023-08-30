@@ -126,8 +126,15 @@ export const Results = () => {
         }
         setJsonData(JSON.parse(filteredMatches[0].jsondata).jsondata);
         const data = jsonData;
-
-        const title = data.title;
+      } catch (error) {
+        console.error('Error parsing JSON:', error.message);
+      }
+      handleAnimation(jsonData.score)
+      const title = jsonData.title;
+      const substringIndex = title.indexOf("Match");
+      const str = substringIndex !== -1 ? title.substring(0, substringIndex) : title;
+      console.log(str);
+      
         const CRRRegex = /C\.RR:\s*(\d+(\.\d+)?)/i;
         const RRRRegex = /R\.RR:\s*(\d+(\.\d+)?)/i;
 
@@ -138,15 +145,6 @@ export const Results = () => {
         const RRR1 = RRRMatch ? RRRMatch[1] : "N/A";
         setCRR(CRR1)
         setRRR(RRR1)
-
-      } catch (error) {
-        console.error('Error parsing JSON:', error.message);
-      }
-      handleAnimation(jsonData.score)
-      const title = jsonData.title;
-      const substringIndex = title.indexOf("Match");
-      const str = substringIndex !== -1 ? title.substring(0, substringIndex) : title;
-      console.log(str);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
@@ -194,10 +192,10 @@ export const Results = () => {
             <div className='flex items-center justify-center mt-10 relative'>
               <div className='flex w-full  absolute items-center rounded-xl text-black bg-white shadow-lg p-1  mx-1 justify-between'>
                 <div className='flex flex-col mx-3'>
-                  <p>{jsonData?.wicketA}</p>
+                  <p>{jsonData?.wicketB}</p>
                   <p className='text-gray-700'> Overs : {jsonData?.oversA}</p>
                 </div>
-                <p className='mx-3' >  {jsonData?.wicketB}</p>
+                <p className='mx-3' >  {jsonData?.wicketA}</p>
               </div>
               <div className='flex w-full items-center justify-center absolute'>
                 <div className='relative'>

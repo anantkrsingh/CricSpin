@@ -19,6 +19,7 @@ export default function Home() {
 
   useEffect(() => {
     fetchData();
+    
   }, []);
 
   const fetchData = async () => {
@@ -40,17 +41,21 @@ export default function Home() {
 
   return (
     <div className='w-full top-8 font-[Roboto] ov  relative'>
-      <div className=' fixed overflow-hidden top-0 w-[350px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center items-center'>
-        <div className='p-4 euclidMedium' >Cricspin</div>
-        <img src={Logo} className='w-[60px]  ' alt="" />
-        <div className='p-4 euclidMedium'>
-          LiveLine
+      <div className=' fixed overflow-hidden top-0 w-[358px] md:w-full margin-0 bg z-10 flex self-center text-white justify-center flex-col items-center'>
+        <div className='flex justify-between'>
+
+          <div className='p-4 euclidMedium' >Cricspin</div>
+          <img src={Logo} className='w-[60px]  ' alt="" />
+          <div className='p-4 euclidMedium'>
+            LiveLine
+          </div>
         </div>
+        <div className='w-full  mt-1 h-[1px] bg-gray-300 '></div>
       </div>
 
       <div className='w-full pl-4  top-8 font-[Roboto] ov  relative'>
 
-        <div className='w-full  mt-10 h-[1px] bg-gray-300 mb-4'></div>
+
         <h4 className=' text-white m-2'>Live Matches</h4>
         {
           loading ? (
@@ -74,7 +79,7 @@ export default function Home() {
           loading ? (
             <p className='text-white p-4'>Loading...</p> // Show a loading message or spinner while fetching data
           ) : (
-            upcomingMatches.slice(0, 3).map((item,index) => (
+            upcomingMatches.slice(0, 3).map((item, index) => (
               <UpcominMatch item={item} position={index} key={item.id} />
             ))
           )
