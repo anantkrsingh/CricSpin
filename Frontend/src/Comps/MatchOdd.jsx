@@ -29,8 +29,8 @@ export const MatchOdd = ({ item }) => {
                     <p className='ml-2'>{item.favourite}</p>
                 </div>
                 <div className='flex'>
-                    <p className='px-2 font-bold py-1 mx-2 bg-red-100 text-red-800 rounded-lg'>{item.MrateA}</p>
-                    <p className='px-2 font-bold py-1 bg-green-100  text-green-800 rounded-lg'>{item.MrateB}</p>
+                    <p className='px-2 h-8 font-bold py-1 mx-2 bg-red-100 text-red-800 rounded-lg'>{item.MrateA}</p>
+                    <p className='px-2 h-8 font-bold py-1 bg-green-100  text-green-800 rounded-lg'>{item.MrateB}</p>
                 </div>
             </div>
 

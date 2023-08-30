@@ -37,13 +37,12 @@ export const SeriesDetails = () => {
   };
 
   return (
-    <div className='max-w-[375px] p-2  flex left-[50%]  m-auto overflow-hidden'>
+    <div className='max-w-[375px] bg flex left-[50%]  m-auto overflow-hidden'>
       <div className='flex z-0 h-screen bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto'>
 
 
         <div className='bg flex p-4'>
           <div className='fixed w-full bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
-
             <BottomBanner />
           </div>
           <BsArrowLeft className='text-white' onClick={() => navigateTo(-1)} size={28} />
