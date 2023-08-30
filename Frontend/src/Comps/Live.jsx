@@ -34,7 +34,6 @@ export const Live = React.memo(({ matchID }) => {
       );
       const data = await response.json();
       setMatch(data[0]);
-      const givenDateTime = new Date(match.Matchtime);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);

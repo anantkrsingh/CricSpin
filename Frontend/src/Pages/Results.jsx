@@ -23,6 +23,7 @@ import loadingLottie from '../assets/json/loading.json';
 
 import CircleOverlay from '../Comps/CircleOverlay';
 import { BottomBanner } from '../Comps/BottomBanner';
+import { logEvent } from 'firebase/analytics';
 
 export const Results = () => {
   const navigateTo = useNavigate();
@@ -120,16 +121,19 @@ export const Results = () => {
       const matchId = parseInt(matchID);
       const filteredMatches = data.filter(it => it.MatchId === matchId);
       setMyMatch(filteredMatches[0]);
-      console.log(filteredMatches[0].jsondata);
+
+
+      console.log(filteredMatches[0]);
+      const sanitizedJsonData = filteredMatches[0].jsondata.replace(/[\x00-\x1F\x7F-\x9F]/g, "");
+      let jsonData = null;
+
       try {
-        if (filteredMatches[0].jsondata === "") {
-          filteredMatches[0].jsondata = "{}";
-        }
-        setJsonData(JSON.parse(filteredMatches[0].jsondata).jsondata);
-        const data = jsonData;
+        jsonData = JSON.parse(sanitizedJsonData).jsondata;
       } catch (error) {
-        console.error('Error parsing JSON:', error.message);
+        console.error("Error parsing JSON data:", error);
+        return null;
       }
+      setJsonData(jsonData)
       handleAnimation(jsonData.score)
       const title = jsonData.title;
       const substringIndex = title.indexOf("Match");
@@ -181,8 +185,8 @@ export const Results = () => {
           </div>
           <div className='flex justify-between text-black p-4'>
             <div className='flex items-center'>
-              <img className='rounded-full mr-4 border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${myMatch?.TeamAImage}`} alt="" />
               <span>{myMatch?.TeamA}</span>
+              <img className='rounded-full mr-4 border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${myMatch?.TeamAImage}`} alt="" />
             </div>
             <div className='flex items-center'>
               <img className=' mr-4 rounded-full border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${myMatch?.TeamBImage}`} alt="" />
@@ -192,7 +196,7 @@ export const Results = () => {
 
           {loading ? <div className='text-black'>Loading</div> :
             <div className='flex items-center justify-center mt-10 relative'>
-              <div className='flex w-full  absolute items-center rounded-xl text-black bg-white shadow-lg p-1  mx-1 justify-between'>
+              <div className='flex w-full  absolute items-center rounded-xl text-black bg-white p-1  mx-1 justify-between'>
                 <div className='flex flex-col mx-3'>
                   <p>{jsonData?.wicketB}</p>
                   <p className='text-gray-700'> Overs : {jsonData?.oversA}</p>
