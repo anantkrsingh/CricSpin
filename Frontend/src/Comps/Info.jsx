@@ -32,6 +32,7 @@ export const Info = ({ match, matchId }) => {
 
       </div>
       <PlayerXI matchId={matchId} />
+      
     </div>
   )
 }

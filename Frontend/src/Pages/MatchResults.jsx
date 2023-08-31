@@ -35,7 +35,7 @@ export const MatchResults = () => {
                     <div className='p-4 euclidMedium items-center flex flex-row'>
                         <p className='text-xl'>C</p>ricSpin
                     </div>
-                    <img src={Logo} onClick={()=>window.location.reload()} className='w-[60px]  ' alt="" />
+                    <img src={Logo} onClick={() => window.location.reload()} className='w-[60px]  ' alt="" />
                     <div className='p-4 euclidMedium items-center flex'>
                         <p className='text-xl'>L</p>iveLine
                     </div>
@@ -47,16 +47,18 @@ export const MatchResults = () => {
                 Results
             </p>
             <div className='pb-28'>
-            {
-                loading ? <div>Loading...</div> : matches.map((item) => (
-                    <div className='pl-4'>
+                {
+                    loading ? <div>Loading...</div> : matches.map((item) => (
+                        <div className='pl-4'>
 
-                        <FinishedMatch match={item} key={item.id} />
-                    </div>
-                ))
-            }
+                            <FinishedMatch match={item} key={item.id} />
+                        </div>
+                    ))
+                }
             </div>
-            </div>
+            <div className='h-6'></div>
+
+        </div>
     )
 
 }

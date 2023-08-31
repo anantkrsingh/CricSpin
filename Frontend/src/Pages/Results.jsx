@@ -218,7 +218,8 @@ export const Results = () => {
                     />
                   }
                   {
-                    animationMap[animation] && animation === "loadingLottie" && <p className='absolute w-[50%] text-sm ml-10 mt-8 flex text-center justify-center z-100' style={{ position: 'absolute', zIndex: 2 }}>{jsonData?.score}</p>
+                    animationMap[animation] && animation === "loadingLottie" && <p className='absolute w-[50%] text-sm font-bold euclid ml-10 mt-8 flex text-center justify-center z-100' style={{ position: 'absolute', zIndex: 2 }}>
+                      {jsonData?.score}</p>
                   }
 
 

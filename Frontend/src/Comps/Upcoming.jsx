@@ -57,12 +57,12 @@ export const Upcoming = () => {
                         <div className='p-4 euclidMedium items-center flex flex-row'>
                             <p className='text-xl'>C</p>ricSpin
                         </div>
-                        <img src={Logo} onClick={()=>window.location.reload()} className='w-[60px]  ' alt="" />
+                        <img src={Logo} onClick={() => window.location.reload()} className='w-[60px]  ' alt="" />
                         <div className='p-4 euclidMedium items-center flex'>
                             <p className='text-xl'>L</p>iveLine
                         </div>
                     </div>
-                    <div className='w-full  mt-1 h-[1px] bg-gray-300 '></div>
+                    <div className='w-full mt-1 h-[1px] bg-gray-300 '></div>
                 </div>
                 <p className='p-4 mt-10 text-white'>
                     Upcoming
@@ -71,13 +71,15 @@ export const Upcoming = () => {
                     Object.values(filteredMatches).map((date, index) => {
                         return (
                             <div className='ms-4' key={index}>
-                                <p className='text-white mt-2'>{date[0].Matchtime.split("at")[0]}</p>
+                                <p className='text-white ms-5'>{date[0].Matchtime.split("at")[0]}</p>
                                 {date.map((match, index) => (
                                     <UpcominMatch item={match} position={index} key={match.id} />
                                 ))}
                             </div>
                         );
                     })}
+
+                    <div className='h-6'></div>
             </div>
         </>
     )

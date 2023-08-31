@@ -185,8 +185,8 @@ export const LiveMatches = ({ match }) => {
                 <div className='flex justify-between'>
                     <p className='p-2 text-sm euclidMedium'>{match.Title}</p>
                     {isLive && match.Result === "" && <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Live</p>}
-                    {match.Result === "" && !isLive && <p className='p-2 font-[Rajdhani] text-blue-800'>Upcoming</p>}
-                    {match.Result != "" &&  <p className='p-2 font-[Rajdhani] text-blue-800'>Finished</p>}
+                    {match.Result === "" && !isLive && <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Upcoming</p>}
+                    {match.Result != "" && <p className='text-white p-2 font-[Rajdhani] bg-red-500'>Finished</p>}
                 </div>
                 <div className='w-full flex flex-row euclidMedium'>
                     <div className='flex flex-col p-4 justify-start items-start'>

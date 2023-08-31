@@ -8,7 +8,7 @@ export const PlayerXI = ({matchId}) => {
     const [shown, setShown] = useState(false)
     return (
         <div>
-            <div className='bg-white  mt-2 mb-10 rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer' >
+            <div className='bg-white  mt-2 mb-24 rounded-xl p-2 transition-all duration-300 ease-in-out cursor-pointer' >
                 <div onClick={() => setShown(!shown)} className='flex euclidMedium justify-between items-center transition-all duration-150 ease-in-out '>
                     <p>Player XI</p>
                     <BsCaretRight />

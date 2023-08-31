@@ -34,7 +34,7 @@ export const UpcominMatch = ({ item ,position}) => {
                 search: `position=${position}`
             }}>
 
-                <div className='w-auto bg-white mt-6 p-2 ps-4 rounded-xl justify-between flex flex-col'>
+                <div className='w-auto bg-white mt-4 p-2 ps-4 rounded-xl justify-between flex flex-col'>
                     <div className='text-black text-[16px] euclid'>
                         {item.Title}
                     </div>

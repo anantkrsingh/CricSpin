@@ -33,7 +33,7 @@ export const Live = () => {
 
             <div className='max-w-[375px] flex euclidMedium md:max-w-[400px] bg left-[50%]  m-auto p-4 overflow-y-auto'>
                 <BsArrowLeft className='text-white' onClick={() => navigateTo(-1)} size={28} />
-                <div className='ml-2 text-white'>Live Matches</div>
+                <div className='ml-2 text-white'>Matches For You</div>
             </div>
             <div className='max-w-[375px] euclidMedium md:max-w-[400px] bg h-screen left-[50%] m-auto p-4 overflow-y-auto'>
                 {!loading &&

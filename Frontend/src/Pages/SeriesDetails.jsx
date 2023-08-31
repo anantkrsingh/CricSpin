@@ -38,9 +38,7 @@ export const SeriesDetails = () => {
 
   return (
     <div className='max-w-[375px] bg flex left-[50%] m-auto overflow-hidden'>
-      <div className='flex z-0 h-screen bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto'>
-
-
+      <div className='flex z-0 bg h-screen bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto'>
         <div className='bg flex p-4'>
           <div className='fixed w-full bottom-0 max-w-[320px] md:max-w-full md:left-0 self-center'>
             <BottomBanner />
@@ -48,7 +46,7 @@ export const SeriesDetails = () => {
           <BsArrowLeft className='text-white' onClick={() => navigateTo(-1)} size={28} />
           <div className='ml-2 text-white'>{name}</div>
         </div>
-        <div className="max-w-[375px] euclidMedium md:max-w-[400px] bg h-screen left-[50%]  p-4 overflow-y-auto">
+        <div className="max-w-[375px] euclidMedium md:max-w-[400px] h-screen left-[50%]  p-4 overflow-y-auto">
 
           <div className='w-full  mt-4 flex justify-between euclidMedium '>
             <div
