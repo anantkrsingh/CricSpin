@@ -1,5 +1,9 @@
 const express = require("express");
+const fs = require('fs');
 const axios = require("axios");
+const { log } = require("console");
+
+
 
 const app = express();
 app.use(require("cors")());
@@ -26,7 +30,12 @@ app.use("/LiveLine", (req, res) => {
   axios
     .get("http://cricpro.cricnet.co.in/api/values/LiveLine")
     .then((data) => {
-      console.log(data.data);
+
+      for (i in data.data) {
+        console.log(data.data[i].TeamAImage);
+        download(data.data[i].ImgeURL + data.data[i].TeamAImage, data.data[i].TeamAImage)
+        download(data.data[i].ImgeURL + data.data[i].TeamBImage, data.data[i].TeamBImage)
+      }
       res.status(200).json(data.data);
     })
     .catch(() => { });
@@ -36,8 +45,12 @@ app.get("/UpcomingMatches", (req, res) => {
   axios
     .get("http://cricpro.cricnet.co.in/api/values/upcomingMatches")
     .then((data) => {
-      console.log(data.data);
       res.status(200).json(data.data);
+      for (i in data.data.AllMatch) {
+        console.log(data.data.AllMatch[i].ImageUrl);
+        download(data.data.AllMatch[i].ImageUrl + data.data.AllMatch[i].TeamAImage, data.data.AllMatch[i].TeamAImage)
+        download(data.data.AllMatch[i].ImageUrl + data.data.AllMatch[i].TeamBImage, data.data.AllMatch[i].TeamBImage)
+      }
     })
     .catch(() => { });
 });
@@ -69,8 +82,12 @@ app.get("/MatchResults", (req, res) => {
 
   axios.post('http://cricpro.cricnet.co.in/api/values/MatchResults', requestBody)
     .then(response => {
-      console.log(response.data);
       res.status(200).json(response.data);
+      for (i in response.data.AllMatch) {
+        console.log(response.data.AllMatch[i].ImageUrl);
+        download(response.data.AllMatch[i].ImageUrl + response.data.AllMatch[i].TeamAImage, response.data.AllMatch[i].TeamAImage)
+        download(response.data.AllMatch[i].ImageUrl + response.data.AllMatch[i].TeamBImage, response.data.AllMatch[i].TeamBImage)
+      }
     })
     .catch(error => {
       console.error('Error:', error);
@@ -179,13 +196,21 @@ app.get("/Pointstable", (req, res) => {
 });
 
 
-
-
-
+async function download(url, fileName) {
+  const response = await axios.get(url, {
+    responseType: "text",
+    responseEncoding: "base64",
+  });
+  console.log(response.data);
+  const buffer = Buffer.from(response.data, 'base64');
+  fs.writeFile(`./images/${fileName}`, buffer, () =>
+    console.log('finished downloading!'));
+}
 
 
 
 
 app.listen("8001", () => {
   console.log("Started");
+
 });
