@@ -11,6 +11,7 @@ import { MatchOdds } from '../Comps/MatchOdds';
 import { MyContext } from '../AppContext';
 import { faBaseball} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IMAGEURL } from '../CONST';
 
 
 
@@ -48,7 +49,7 @@ export const UpcomingResults = () => {
     }, []);
     const fetchData = async () => {
         try {
-            const upcomingResponse = await fetch("http://api.cricspin.live/UpcomingMatches");
+            const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
             const upcomingData = await upcomingResponse.json();
             const matchId = parseInt(position);
             console.log(matchId);
@@ -90,7 +91,7 @@ export const UpcomingResults = () => {
                     <div className='flex justify-between items-center  mt-2 overflow-hidden text-black p-2'>
                         <div className='flex items-center'>
                             <span>{myMatch?.TeamA}</span>
-                            <img className='rounded-full mr-1 border-4  h-10 w-10 ' src={`${myMatch?.ImageUrl}${myMatch?.TeamAImage}`} alt="" />
+                            <img className='rounded-full mr-1 border-4  h-10 w-10 ' src={`${IMAGEURL}${myMatch?.TeamAImage}`} alt="" />
                         </div>
                         <div className='relative justify-center m-2 items-center flex'>
 
@@ -101,7 +102,7 @@ export const UpcomingResults = () => {
                             <p className=' absolute  text-white text-lg font-bold'>VS</p>
                         </div>
                         <div className='flex items-center'>
-                            <img className=' mr-4 rounded-full border-4 h-10 w-10' src={`${myMatch?.ImageUrl}${myMatch?.TeamBImage}`} alt="" />
+                            <img className=' mr-4 rounded-full border-4 h-10 w-10' src={`${IMAGEURL}${myMatch?.TeamBImage}`} alt="" />
                             <span>{myMatch?.TeamB}</span>
                         </div>
 

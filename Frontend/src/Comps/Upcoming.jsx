@@ -18,18 +18,19 @@ export const Upcoming = () => {
 
     const fetchData = async () => {
         try {
-            const upcomingResponse = await fetch("http://api.cricspin.live/UpcomingMatches");
+            const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
             const upcomingData = await upcomingResponse.json();
             console.log(upcomingData.AllMatch);
             setUpcomingMatches(upcomingData.AllMatch);
 
             const groupByDate = (matches) => {
                 const groupedMatches = {};
-                matches.forEach((match) => {
+                matches.forEach((match,index) => {
                     const date = match.Matchtime.split(" ")[0];
                     if (!groupedMatches[date]) {
                         groupedMatches[date] = [];
                     }
+                    match.position = index
                     groupedMatches[date].push(match);
                 });
                 return groupedMatches;
@@ -73,7 +74,7 @@ export const Upcoming = () => {
                             <div className='ms-4' key={index}>
                                 <p className='text-white ms-5'>{date[0].Matchtime.split("at")[0]}</p>
                                 {date.map((match, index) => (
-                                    <UpcominMatch item={match} position={index} key={match.id} />
+                                    <UpcominMatch item={match} position={match.position} key={match.id} />
                                 ))}
                             </div>
                         );

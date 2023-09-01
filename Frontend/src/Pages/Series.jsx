@@ -17,7 +17,7 @@ export const Series = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://api.cricspin.live/Series");
+      const response = await fetch("https://api.cricspin.live/Series");
       const data = await response.json();
       setSeries(data);
       setLoading(false); // Set loading to false once data is fetched

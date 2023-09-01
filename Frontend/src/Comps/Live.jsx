@@ -24,7 +24,7 @@ export const Live = React.memo(({ matchID }) => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "http://api.cricspin.live/Live/?MatchId=" + matchID,
+        "https://api.cricspin.live/Live/?MatchId=" + matchID,
         {
           method: "POST",
           headers: {

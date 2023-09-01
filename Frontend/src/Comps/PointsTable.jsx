@@ -9,7 +9,7 @@ export const PointsTable = ({ seriesId }) => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://api.cricspin.live/Pointstable?seriesId=${seriesId}`);
+      const response = await fetch(`https://api.cricspin.live/Pointstable?seriesId=${seriesId}`);
       const data = await response.json();
       setData(data.pointsst);
       setLoading(false);

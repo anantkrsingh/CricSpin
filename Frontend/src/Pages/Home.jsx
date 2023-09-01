@@ -24,12 +24,12 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const upcomingResponse = await fetch("http://api.cricspin.live/UpcomingMatches");
+      const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
       const upcomingData = await upcomingResponse.json();
       console.log(upcomingData.AllMatch);
       setUpcomingMatches(upcomingData.AllMatch);
 
-      const liveResponse = await fetch("http://api.cricspin.live/LiveLine");
+      const liveResponse = await fetch("https://api.cricspin.live/LiveLine");
       const liveData = await liveResponse.json();
       setLiveMatches(liveData);
       setLoading(false);
@@ -47,7 +47,7 @@ export default function Home() {
           <div className='p-4 euclidMedium items-center flex flex-row'>
             <p className='text-xl'>C</p>ricSpin
           </div>
-          <img src={Logo} onClick={()=>window.location.reload()} className='w-[60px]  ' alt="" />
+          <img src={Logo} onClick={() => window.location.reload()} className='w-[60px]  ' alt="" />
           <div className='p-4 euclidMedium items-center flex'>
             <p className='text-xl'>L</p>iveLine
           </div>

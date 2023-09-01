@@ -25,6 +25,7 @@ import loadingLottie from '../assets/json/loading.json';
 import CircleOverlay from '../Comps/CircleOverlay';
 import { BottomBanner } from '../Comps/BottomBanner';
 import { logEvent } from 'firebase/analytics';
+import { IMAGEURL } from '../CONST';
 
 export const Results = () => {
   const navigateTo = useNavigate();
@@ -117,7 +118,7 @@ export const Results = () => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://api.cricspin.live/SeriesMatches?seriesId=${seriesId}`);
+      const response = await fetch(`https://api.cricspin.live/SeriesMatches?seriesId=${seriesId}`);
       const data = await response.json();
       const matchId = parseInt(matchID);
       const filteredMatches = data.filter(it => it.MatchId === matchId);
@@ -189,10 +190,10 @@ export const Results = () => {
           <div className='flex justify-between text-black p-4'>
             <div className='flex items-center'>
               <span>{jsonData?.teamA}</span>
-              <img className='rounded-full mr-1 border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${jsonData?.TeamABanner}`} alt="" />
+              <img className='rounded-full mr-1 border-4  h-[48px] ' src={`${IMAGEURL}${jsonData?.TeamABanner}`} alt="" />
             </div>
             <div className='flex items-center'>
-              <img className=' mr-1 rounded-full border-4  h-[48px] ' src={`${myMatch?.ImgeURL}${jsonData?.TeamBBanner}`} alt="" />
+              <img className=' mr-1 rounded-full border-4  h-[48px] ' src={`${IMAGEURL}${jsonData?.TeamBBanner}`} alt="" />
               <span>{jsonData?.teamB}</span>
             </div>
           </div>

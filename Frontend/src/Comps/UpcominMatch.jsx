@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { IMAGEURL } from '../CONST'
 
-export const UpcominMatch = ({ item ,position}) => {
+export const UpcominMatch = ({ item, position }) => {
     return (
         // <>
         //     <div className='w-auto bg-white mt-6 p-5 rounded-t-xl flex justify-between ' >
@@ -41,11 +42,11 @@ export const UpcominMatch = ({ item ,position}) => {
                     <div className='flex w-full justify-between'>
                         <div className='flex flex-col'>
                             <div className='flex flex-row items-center'>
-                                <img src={item.ImageUrl + item.TeamAImage} className='rounded-full border-2  w-[48px] h-[48px]' alt="" />
+                                <img src={IMAGEURL + item.TeamAImage} className='rounded-full border-2  w-[48px] h-[48px]' alt="" />
                                 <h4 className=' euclid font-bold ms-4 text-[18px]'>{item.TeamA}</h4>
                             </div>
                             <div className='flex flex-row items-center'>
-                                <img src={item.ImageUrl + item.TeamBImage} className='rounded-full border-2  w-[48px] h-[48px]' alt="" />
+                                <img src={IMAGEURL+ item.TeamBImage} className='rounded-full border-2  w-[48px] h-[48px]' alt="" />
                                 <h4 className='euclid font-bold ms-4 text-[18px]'>{item.TeamB}</h4>
                             </div>
                         </div>

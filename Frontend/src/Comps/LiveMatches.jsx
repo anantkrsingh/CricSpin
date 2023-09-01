@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { IMAGEURL } from '../CONST';
 
 export const LiveMatches = ({ match }) => {
     const [jsonData, setJsonData] = useState()
@@ -11,7 +12,7 @@ export const LiveMatches = ({ match }) => {
     console.log(formattedDate);
     const convertedDate = convertDateFormat(match.Matchtime.trim().split("at")[0]);
 
-    console.log(match.Matchtime);
+    console.log(match);
     console.log(convertedDate);
 
     function compareDateTimeWithCurrent(dateTimeString) {
@@ -190,7 +191,7 @@ export const LiveMatches = ({ match }) => {
                 </div>
                 <div className='w-full flex flex-row euclidMedium'>
                     <div className='flex flex-col p-4 justify-start items-start'>
-                        <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={match.ImgeURL + jsonData?.TeamABanner} className='teamLogo' alt="" />
+                        <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={IMAGEURL+match?.TeamAImage} className='teamLogo' alt="" />
                         <h4 className=' font-bold text-start text-xl'>{jsonData?.teamA}</h4>
                         <h4 className='font-bold flex flex-row'>{jsonData?.wicketA}  <p className='text-gray-400 ms-1'>({jsonData?.oversA})</p> </h4>
                     </div>
@@ -198,7 +199,7 @@ export const LiveMatches = ({ match }) => {
                         <h3 className='text-red-500 font-bold'>VS</h3>
                     </div>
                     <div className='flex w-[inherit] flex-col p-4 items-end'>
-                        <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={match.ImgeURL + jsonData?.TeamBBanner} className='teamLogo' alt="" />
+                        <img style={{ border: " solid 4px", borderRadius: "9999px", width: "fit-content", height: "48px", borderColor: "rgb(214 211 209)" }} src={IMAGEURL + match?.TeamBImage} className='teamLogo' alt="" />
                         <h4 className=' font-bold text-right text-xl'>{jsonData?.teamB}</h4>
                         <h4 className='font-bold flex'>{jsonData?.wicketB}</h4>
                     </div>

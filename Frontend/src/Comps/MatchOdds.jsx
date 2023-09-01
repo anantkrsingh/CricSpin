@@ -18,7 +18,7 @@ export const MatchOdds = ({ matchId }) => {
     }, []);
     const fetchData = async () => {
         try {
-            const response = await fetch(`http://api.cricspin.live/MatchOdds?MatchId=${matchId}`);
+            const response = await fetch(`https://api.cricspin.live/MatchOdds?MatchId=${matchId}`);
             const data = await response.json();
             setMatch(data.Matchst);
             setLoading(false);
