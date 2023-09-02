@@ -21,7 +21,7 @@ import wide from '../assets/json/wide.json';
 import thid_umpire from '../assets/json/third_umpire.json';
 import six from '../assets/json/six.json';
 import loadingLottie from '../assets/json/loading.json';
-
+import { Helmet } from 'react-helmet';
 import CircleOverlay from '../Comps/CircleOverlay';
 import { BottomBanner } from '../Comps/BottomBanner';
 import { logEvent } from 'firebase/analytics';
@@ -178,6 +178,25 @@ export const Results = () => {
 
   return (
     <>
+
+      <Helmet>
+        <title>{myMatch?.MatchType + myMatch?.TeamA + "VS" + myMatch?.TeamB}</title>
+        <meta name="robots" content="index, follow"></meta>
+        <meta charset="utf-8"></meta>
+        <meta name='description' content="Get Live Cricket Scores, Scorecard, Commentary, Match Info and Schedules of All International and Domestic Matches, Serieswise Stats, Records, Analysis and Facts, Trending News and Tweets, Recent ICC Player and Team Rankings" />
+        <meta name='keywords' content='Indian Premier Leage, ipl 2022, ipl auction 2022, ipl 2021 schedule, Virat kohli, sreesanth, world cup, cricket, fast live update, cricket live score' />
+        <meta property="og:url" content="https://cricspin.live"></meta>
+        <meta property="og:type" content="website"></meta>
+        <meta property="og:image" content="./assets/logo.png"></meta>
+        <meta property="og:site_name" content="CricSpin"></meta>
+        <title>CricSpin</title>
+        <meta property='og:description' content="Get Live Cricket Scores, Scorecard, Commentary, Match Info and Schedules of All International and Domestic Matches, Serieswise Stats, Records, Analysis and Facts, Trending News and Tweets, Recent ICC Player and Team Rankings" />
+        <meta name="twitter:title" content={myMatch?.MatchType + myMatch?.TeamA + "VS" + myMatch?.TeamB} />
+        <meta name="twitter:description" content="Get Live Cricket Scores, Scorecard, Commentary, Match Info and Schedules of All International and Domestic Matches, Serieswise Stats, Records, Analysis and Facts, Trending News and Tweets, Recent ICC Player and Team Rankings" />
+        <meta name="twitter:image" content="./assets/logo.png" />
+        <meta property="og:title" content={myMatch?.MatchType + myMatch?.TeamA + "VS" + myMatch?.TeamB}></meta>
+      </Helmet>
+
 
       <div className="max-w-[375px]  flex left-[50%]  m-auto overflow-hidden">
         <div className="flex z-0 h-screen p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">

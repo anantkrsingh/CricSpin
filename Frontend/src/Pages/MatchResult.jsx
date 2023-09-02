@@ -6,9 +6,10 @@ import { ScoreCard } from '../Comps/ScoreCard';
 import { Live } from '../Comps/Live';
 import { Info } from '../Comps/Info';
 import { MatchOdds } from '../Comps/MatchOdds';
+import { Helmet } from 'react-helmet';
 
 export const MatchResult = () => {
-    
+
     const navigateTo = useNavigate();
     const [currentItem, setCurrentItem] = useState("Scorecard");
     const [searchParams, setSearchParams] = useSearchParams();
@@ -66,6 +67,24 @@ export const MatchResult = () => {
 
     return (
         <>
+            <Helmet>
+                <title>{myMatch.Title}</title>
+                <meta name="robots" content="index, follow"></meta>
+                <meta charset="utf-8"></meta>
+                <meta name='description' content="Get Live Cricket Scores, Scorecard, Commentary, Match Info and Schedules of All International and Domestic Matches, Serieswise Stats, Records, Analysis and Facts, Trending News and Tweets, Recent ICC Player and Team Rankings" />
+                <meta name='keywords' content='Indian Premier Leage, ipl 2022, ipl auction 2022, ipl 2021 schedule, Virat kohli, sreesanth, world cup, cricket, fast live update, cricket live score' />
+                <meta property="og:url" content="https://cricspin.live"></meta>
+                <meta property="og:type" content="website"></meta>
+                <meta property="og:image" content="./assets/logo.png"></meta>
+                <meta property="og:site_name" content="CricSpin"></meta>
+                <title>CricSpin</title>
+                <meta property='og:description' content="Get Live Cricket Scores, Scorecard, Commentary, Match Info and Schedules of All International and Domestic Matches, Serieswise Stats, Records, Analysis and Facts, Trending News and Tweets, Recent ICC Player and Team Rankings" />
+                <meta name="twitter:title" content="https://cricspin.live" />
+                <meta name="twitter:description" content="Get Live Cricket Scores, Scorecard, Commentary, Match Info and Schedules of All International and Domestic Matches, Serieswise Stats, Records, Analysis and Facts, Trending News and Tweets, Recent ICC Player and Team Rankings" />
+                <meta name="twitter:image" content="./assets/logo.png" />
+                <meta property="og:title" content={myMatch?.Title}></meta>
+            </Helmet>
+
             <div className="max-w-[375px] p-2  flex left-[50%]  m-auto overflow-hidden">
                 <div className="flex z-0 h-screen p-4 bg-gray-200  flex-col w-[375px] m-0 fixed md:left-0  md:w-[100vw] transition-all duration-300 ease-in-out overflow-y-auto">
                     <div className="">
