@@ -68,7 +68,7 @@ export const MatchResult = () => {
     return (
         <>
             <Helmet>
-                <title>{myMatch.Title}</title>
+                <title>{myMatch?.Title}</title>
                 <meta name="robots" content="index, follow"></meta>
                 <meta charset="utf-8"></meta>
                 <meta name='description' content="Get Live Cricket Scores, Scorecard, Commentary, Match Info and Schedules of All International and Domestic Matches, Serieswise Stats, Records, Analysis and Facts, Trending News and Tweets, Recent ICC Player and Team Rankings" />
