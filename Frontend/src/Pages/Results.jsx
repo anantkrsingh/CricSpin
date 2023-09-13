@@ -227,7 +227,7 @@ export const Results = () => {
                 <p className='mx-3' >  {jsonData?.wicketB}</p>
               </div>
               <div className='flex w-full items-center justify-center absolute'>
-                <div className='relative'>
+                <div className='relative items-center justify-center flex'>
 
                   {
                     animation != "loadingLottie" && <Lottie
@@ -238,7 +238,7 @@ export const Results = () => {
                     />
                   }
                   {
-                    animationMap[animation] && animation === "loadingLottie" && <p className='absolute w-[50%] text-sm font-bold euclid ml-10 mt-8 flex text-center justify-center z-100' style={{ position: 'absolute', zIndex: 2 }}>
+                    animationMap[animation] && animation === "loadingLottie" && <p className='absolute w-[50%] text-sm font-bold euclid  flex text-center justify-center z-100' style={{ position: 'absolute', zIndex: 2 }}>
                       {jsonData?.score}</p>
                   }
 
