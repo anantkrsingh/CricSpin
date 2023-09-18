@@ -192,15 +192,15 @@ export const LiveMatches = ({ match }) => {
                 <div className='w-full flex flex-row euclidMedium'>
                     <div className='flex flex-col p-4 justify-start items-start'>
                         <img style={{ border: " solid 4px", borderRadius: "9999px", width: "48px", height: "48px", borderColor: "rgb(214 211 209)" }} src={IMAGEURL+match?.TeamAImage} className='teamLogo' alt="" />
-                        <h4 className=' font-bold text-start text-xl'>{jsonData?.teamA}</h4>
-                        <h4 className='font-bold flex flex-row'>{jsonData?.wicketA}  <p className='text-gray-400 ms-1'>({jsonData?.oversA})</p> </h4>
+                        <h4 className=' font-bold text-start text-xl'>{ isLive && match.Result === "" ? jsonData?.teamA: match.TeamA}</h4>
+                        <h4 className='font-bold flex flex-row'>{ jsonData?.wicketA}  <p className='text-gray-400 ms-1'>({jsonData?.oversA})</p> </h4>
                     </div>
                     <div className='w-[inherit] h-[100%] flex justify-center self-center'>
                         <h3 className='text-red-500 font-bold'>VS</h3>
                     </div>
                     <div className='flex w-[inherit] flex-col p-4 items-end'>
                         <img style={{ border: " solid 4px", borderRadius: "9999px", width: "48px", height: "48px", borderColor: "rgb(214 211 209)" }} src={IMAGEURL + match?.TeamBImage} className='teamLogo' alt="" />
-                        <h4 className=' font-bold text-right text-xl'>{jsonData?.teamB}</h4>
+                        <h4 className=' font-bold text-right text-xl'>{  isLive && match.Result === "" ? jsonData?.teamB : match.TeamB}</h4>
                         <h4 className='font-bold flex'>{jsonData?.wicketB}</h4>
                     </div>
                 </div>
