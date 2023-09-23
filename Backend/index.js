@@ -33,8 +33,8 @@ app.use("/LiveLine", (req, res) => {
 
       for (i in data.data) {
         console.log(data.data[i].TeamAImage);
-        download(data.data[i].ImgeURL + data.data[i].TeamAImage, data.data[i].TeamAImage)
-        download(data.data[i].ImgeURL + data.data[i].TeamBImage, data.data[i].TeamBImage)
+        download(data.data[i].ImgeURL+data.data[i].TeamAImage, data.data[i].TeamAImage)
+        download(data.data[i].ImgeURL+data.data[i].TeamBImage, data.data[i].TeamBImage)
       }
       res.status(200).json(data.data);
     })
@@ -201,7 +201,6 @@ async function download(url, fileName) {
     responseType: "text",
     responseEncoding: "base64",
   });
-  console.log(response.data);
   const buffer = Buffer.from(response.data, 'base64');
   fs.writeFile(`./images/${fileName}`, buffer, () =>
     console.log('finished downloading!'));
