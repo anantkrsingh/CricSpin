@@ -5,15 +5,15 @@ services:
   node:
   # Location to the node.js dockerfile
     build: 
-      context: ./backend
+      context: ./Backend
         # Name of the dockerfile
       dockerfile: Dockerfile
-    container_name: backend-container
+    container_name: cricspin-backend-container
     ports:
        # Host port:Container port
       - '8001:8001'
     volumes:
       # Bind-mounts configuration
-      - ./backend:/app
+      - ./Backend:/app
       # Ignoring any changes made in "node_modules" folder
       # - ./app/node_modules
