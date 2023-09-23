@@ -14,6 +14,6 @@ services:
       - '8001:8001'
     volumes:
       # Bind-mounts configuration
-      - ./Backend:/app
+      # - ./Backend:/app
       # Ignoring any changes made in "node_modules" folder
       # - ./app/node_modules
