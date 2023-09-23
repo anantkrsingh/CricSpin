@@ -12,8 +12,3 @@ services:
     ports:
        # Host port:Container port
       - '8001:8001'
-    volumes:
-      # Bind-mounts configuration
-      # - ./Backend:/app
-      # Ignoring any changes made in "node_modules" folder
-      # - ./app/node_modules
