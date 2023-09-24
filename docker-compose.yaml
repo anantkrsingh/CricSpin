@@ -1,14 +1,22 @@
-# Version of Docker-compose
 version: '3.9'
 services:
-  # Add the node-js service
   node:
-  # Location to the node.js dockerfile
-    build: 
+    build:
       context: ./Backend
-        # Name of the dockerfile
       dockerfile: Dockerfile
     container_name: cricspin-backend-container
     ports:
-       # Host port:Container port
       - '8001:8001'
+    volumes:
+      - ./Backend:/app # Mount the whole Backend directory to /app in the container
+
+  nginx:
+    image: nginx:latest
+    container_name: cricspin-nginx-container
+    ports:
+      - '8080:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Backend:/app/images:ro # Mount the whole Backend directory to /app/static-files in the Nginx container
+    depends_on:
+      - node

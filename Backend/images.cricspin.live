@@ -1,0 +1,11 @@
+server {
+    listen 80; # Exposed port
+    server_name localhost;
+
+    location /images/ {
+        alias ;
+        autoindex on; 
+    }
+
+    # You can add more location blocks or customizations here as needed...
+}
