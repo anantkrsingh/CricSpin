@@ -1,6 +1,8 @@
 const express = require("express");
-const fs = require('fs');
+const fs = require('fs').promises;
 const axios = require("axios");
+const path = require('path');
+
 const { log } = require("console");
 
 
@@ -197,14 +199,26 @@ app.get("/Pointstable", (req, res) => {
 
 
 async function download(url, fileName) {
-  const response = await axios.get(url, {
-    responseType: "text",
-    responseEncoding: "base64",
-  });
-  const buffer = Buffer.from(response.data, 'base64');
-  fs.writeFile(`./images/${fileName}`, buffer, () =>
-    console.log('finished downloading!'));
+  const directoryPath = './images';
+  const filePath = path.join(directoryPath, fileName);
+
+  try {
+    // Create the directory if it doesn't exist
+    await fs.mkdir(directoryPath, { recursive: true });
+
+    const response = await axios.get(url, {
+      responseType: "text",
+      responseEncoding: "base64",
+    });
+    const buffer = Buffer.from(response.data, 'base64');
+
+    await fs.writeFile(filePath, buffer);
+    console.log('Finished downloading:', fileName);
+  } catch (error) {
+    console.error('Error:', error);
+  }
 }
+
 
 
 

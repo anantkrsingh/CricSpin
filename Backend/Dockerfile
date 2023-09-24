@@ -1,13 +1,6 @@
-FROM node:16-alpine
+FROM node:16.3.0-alpine
 
-WORKDIR /app
-
-COPY . /app
-
-COPY package.json .
-
+COPY . .
 RUN npm install
-
 EXPOSE 8001
-
-CMD [ "npm", "start" ]
+CMD ["npm","start"]
