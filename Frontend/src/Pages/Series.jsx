@@ -38,7 +38,7 @@ export const Series = () => {
           <p>Loading...</p>
         ) : (
           series.map((item) => (
-            <div onClick={() => navigateTo(`/smatch?seriesId=${item.seriesid}&name=${item.seriesname}`)} className='w-full p-4 cursor-pointer bg-white mt-2 rounded-3xl shadow-xl'>
+            <div onClick={() => navigateTo(`/smatch?seriesId=${item.seriesid}&name=${item.seriesname}`)} className='w-full p-4 cursor-pointer bg-white mt-2 text-xl rounded-3xl shadow-xl'>
               <Link
                 key={item.seriesid}>
                 <Link

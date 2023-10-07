@@ -6,7 +6,7 @@ const CircleOverlay = () => {
 
   useEffect(() => {
     const animation = requestAnimationFrame(() => {
-      setRotationAngle((prevAngle) => prevAngle + .3); 
+      setRotationAngle((prevAngle) => prevAngle + .3);
     });
 
     return () => cancelAnimationFrame(animation);

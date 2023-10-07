@@ -125,8 +125,7 @@ export const Results = () => {
       setMyMatch(filteredMatches[0]);
 
 
-      console.log(filteredMatches[0]);
-      const sanitizedJsonData = filteredMatches[0].jsondata.replace(/[\x00-\x1F\x7F-\x9F]/g, "");
+       const sanitizedJsonData = filteredMatches[0].jsondata.replace(/[\x00-\x1F\x7F-\x9F]/g, "");
       let jsonData = null;
 
       try {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import DOMPurify from "dompurify";
 import { ExpandableBanner } from "./ExpandableBanner";
 import { BottomBanner } from "./BottomBanner";
 
