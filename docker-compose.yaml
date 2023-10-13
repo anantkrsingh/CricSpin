@@ -17,6 +17,6 @@ services:
       - '4040:80'
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./Backend:/images:ro # Mount the whole Backend directory to /app/static-files in the Nginx container
+      - ./Backend:/images:ro 
     depends_on:
       - node

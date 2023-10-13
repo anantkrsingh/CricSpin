@@ -19,7 +19,7 @@ export const AppContext = ({ children }) => {
     });
   }, []);
   return (
-    <MyContext.Provider value={{ nav, setNav,bannerData }}>
+    <MyContext.Provider value={{ nav, setNav, bannerData }}>
       {children}
     </MyContext.Provider>
   )

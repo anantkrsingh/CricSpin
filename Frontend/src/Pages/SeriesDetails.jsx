@@ -25,10 +25,10 @@ export const SeriesDetails = () => {
       const response = await fetch(`https://api.cricspin.live/SeriesMatches?seriesId=${id}`);
       const data = await response.json();
       setMatches(data);
-      setLoading(false); // Set loading to false once data is fetched
+      setLoading(false); 
     } catch (error) {
       console.error("Error fetching data:", error);
-      setLoading(false); // Set loading to false if there's an error
+      setLoading(false); 
     }
   };
 
@@ -72,13 +72,13 @@ export const SeriesDetails = () => {
           </div>
           <div className='mt-4 euclid text-white'>
             {loading ? (
-              'Loading...' // Show a loading message or spinner while fetching data
+              'Loading...' 
             ) : selected === 'FIXTURE' ? (
               matches.map((item) => {
                 return <MyDiv match={item} />;
               })
             ) : (
-              <PointsTable seriesId={id} /> // Render the PointsTable component if selected is "POINTS TABLE"
+              <PointsTable seriesId={id} /> 
             )}
           </div>
 

@@ -35,8 +35,8 @@ app.use("/LiveLine", (req, res) => {
 
       for (i in data.data) {
         console.log(data.data[i].TeamAImage);
-        download(data.data[i].ImgeURL+data.data[i].TeamAImage, data.data[i].TeamAImage)
-        download(data.data[i].ImgeURL+data.data[i].TeamBImage, data.data[i].TeamBImage)
+        download(data.data[i].ImgeURL + data.data[i].TeamAImage, data.data[i].TeamAImage)
+        download(data.data[i].ImgeURL + data.data[i].TeamBImage, data.data[i].TeamBImage)
       }
       res.status(200).json(data.data);
     })
@@ -121,8 +121,10 @@ app.post("/Players", (req, res) => {
       "MatchId": matchId,
     })
     .then((response) => {
-      console.log(response.data);
       res.status(200).json(response.data.Playerslist);
+      for (let i = 0; i <= response.data.Playerslist.length - 1; i++) {
+        download(`http://cricnet.co.in/ManagePlaying/PlayerImage/${response.data.Playerslist[i].PlayerImage}`, response.data.Playerslist[i].PlayerImage)
+      }
     })
     .catch((error) => {
       console.error(error);
@@ -181,6 +183,7 @@ app.get("/SeriesMatches", (req, res) => {
     });
 });
 
+
 app.get("/Pointstable", (req, res) => {
   const seriesId = req.query.seriesId;
   axios
@@ -203,7 +206,6 @@ async function download(url, fileName) {
   const filePath = path.join(directoryPath, fileName);
 
   try {
-    // Create the directory if it doesn't exist
     await fs.mkdir(directoryPath, { recursive: true });
 
     const response = await axios.get(url, {

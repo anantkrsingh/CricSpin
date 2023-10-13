@@ -50,7 +50,6 @@ export const MatchResults = () => {
                 {
                     loading ? <div>Loading...</div> : matches.map((item) => (
                         <div className='pl-4'>
-
                             <FinishedMatch match={item} key={item.id} />
                         </div>
                     ))
