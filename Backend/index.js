@@ -201,6 +201,9 @@ app.get("/Pointstable", (req, res) => {
 });
 
 
+
+
+
 async function download(url, fileName) {
   const directoryPath = './images';
   const filePath = path.join(directoryPath, fileName);
