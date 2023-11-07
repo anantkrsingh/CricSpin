@@ -34,7 +34,7 @@ app.use("/LiveLine", (req, res) => {
     .then((data) => {
 
       for (i in data.data) {
-        console.log(data.data[i].TeamAImage);
+        // console.log(data.data[i].TeamAImage);
         download(data.data[i].ImgeURL + data.data[i].TeamAImage, data.data[i].TeamAImage)
         download(data.data[i].ImgeURL + data.data[i].TeamBImage, data.data[i].TeamBImage)
       }
@@ -49,7 +49,7 @@ app.get("/UpcomingMatches", (req, res) => {
     .then((data) => {
       res.status(200).json(data.data);
       for (i in data.data.AllMatch) {
-        console.log(data.data.AllMatch[i].ImageUrl);
+        // console.log(data.data.AllMatch[i].ImageUrl);
         download(data.data.AllMatch[i].ImageUrl + data.data.AllMatch[i].TeamAImage, data.data.AllMatch[i].TeamAImage)
         download(data.data.AllMatch[i].ImageUrl + data.data.AllMatch[i].TeamBImage, data.data.AllMatch[i].TeamBImage)
       }
@@ -64,7 +64,7 @@ app.get("/Result", (req, res) => {
       "MatchId": matchId,
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
@@ -86,7 +86,7 @@ app.get("/MatchResults", (req, res) => {
     .then(response => {
       res.status(200).json(response.data);
       for (i in response.data.AllMatch) {
-        console.log(response.data.AllMatch[i].ImageUrl);
+        // // console.log(response.data.AllMatch[i].ImageUrl);
         download(response.data.AllMatch[i].ImageUrl + response.data.AllMatch[i].TeamAImage, response.data.AllMatch[i].TeamAImage)
         download(response.data.AllMatch[i].ImageUrl + response.data.AllMatch[i].TeamBImage, response.data.AllMatch[i].TeamBImage)
       }
@@ -103,7 +103,7 @@ app.get("/Series", (req, res) => {
       "MatchId": matchId,
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
@@ -115,7 +115,7 @@ app.get("/Series", (req, res) => {
 
 app.post("/Players", (req, res) => {
   const matchId = req.query.MatchId;
-  console.log(matchId);
+  // console.log(matchId);
   axios
     .post("http://cricpro.cricnet.co.in/api/values/GetAllPlayers", {
       "MatchId": matchId,
@@ -134,13 +134,13 @@ app.post("/Players", (req, res) => {
 
 app.get("/MatchOdds", (req, res) => {
   const matchId = req.query.MatchId;
-  console.log(matchId);
+  // console.log(matchId);
   axios
     .post("http://cricpro.cricnet.co.in/api/values/MatchOdds", {
       "MatchId": matchId,
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
@@ -151,13 +151,13 @@ app.get("/MatchOdds", (req, res) => {
 
 app.post("/Live", (req, res) => {
   const matchId = req.query.MatchId;
-  console.log(matchId);
+  // console.log(matchId);
   axios
     .post("http://cricpro.cricnet.co.in/api/values/LiveLine_Match", {
       "MatchId": matchId,
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
@@ -174,7 +174,7 @@ app.get("/SeriesMatches", (req, res) => {
       "seriesid": seriesId,
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
@@ -191,7 +191,7 @@ app.get("/Pointstable", (req, res) => {
       "seriesid": seriesId,
     })
     .then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
@@ -218,7 +218,7 @@ async function download(url, fileName) {
     const buffer = Buffer.from(response.data, 'base64');
 
     await fs.writeFile(filePath, buffer);
-    console.log('Finished downloading:', fileName);
+    // console.log('Finished downloading:', fileName);
   } catch (error) {
     console.error('Error:', error);
   }
@@ -229,6 +229,6 @@ async function download(url, fileName) {
 
 
 app.listen("8001", () => {
-  console.log("Started");
+  // console.log("Started");
 
 });
