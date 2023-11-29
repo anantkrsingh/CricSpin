@@ -9,15 +9,13 @@ export const LiveMatches = ({ match }) => {
     const month = String(currentDate.getMonth() + 1).padStart(2, '0');
     const year = currentDate.getFullYear();
     const formattedDate = `${day}-${month}-${year}`;
-    console.log(formattedDate);
-    if (!match.Matchtime) {
+    let convertedDate ;
+    try{
+
+         convertedDate = convertDateFormat(match.Matchtime.trim()?.split("at")[0]);
+    }catch(e){
         return <div></div>
     }
-    const convertedDate = convertDateFormat(match.Matchtime.trim()?.split("at")[0]);
-
-    console.log(match);
-    console.log(convertedDate);
-
     function compareDateTimeWithCurrent(dateTimeString) {
         const targetDateTime = parseDateTime(dateTimeString);
         const currentDateTime = new Date();
