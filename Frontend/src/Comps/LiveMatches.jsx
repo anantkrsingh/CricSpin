@@ -10,7 +10,7 @@ export const LiveMatches = ({ match }) => {
     const year = currentDate.getFullYear();
     const formattedDate = `${day}-${month}-${year}`;
     console.log(formattedDate);
-    if (!match.Matchtime.trim()?.split("at")[0]) {
+    if (!match.Matchtime) {
         return <div></div>
     }
     const convertedDate = convertDateFormat(match.Matchtime.trim()?.split("at")[0]);
