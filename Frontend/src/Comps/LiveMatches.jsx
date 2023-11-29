@@ -42,8 +42,7 @@ export const LiveMatches = ({ match }) => {
     function compareDates(dateString1, dateString2) {
         const date1 = new Date(dateString1);
         const date2 = new Date(dateString2);
-        console.log(date1);
-        console.log(date2);
+       
         if (date1 < date2) {
             return -1;
         } else if (date1 > date2) {
@@ -60,11 +59,9 @@ export const LiveMatches = ({ match }) => {
         }
         jsonData = JSON.parse(match.jsondata).jsondata;
         const wicketA = jsonData?.wicketA;
-        console.log(wicketA);
     } catch (error) {
         console.error('Error parsing JSON:', error.message);
     }
-    console.log(match);
     function convertDateFormat(inputDate) {
         const months = {
             "Jan": "01",
@@ -96,8 +93,6 @@ export const LiveMatches = ({ match }) => {
             const parts = dateTimeString.split("-");
             const datePart = parts[0].trim() + " " + parts[1].trim() + " " + parts[2].split("at")[0]
             const timePart = parts[2].split("at")[1];
-            console.log(timePart);
-
             const dateParts = datePart.split(" ");
             const day = parseInt(dateParts[0]);
             const monthAbbrev = dateParts[1];
@@ -148,13 +143,10 @@ export const LiveMatches = ({ match }) => {
     let intData = -1;
     if (comparisonResult < 0) {
         isLive = true;
-        console.log("The target date and time is earlier than the current date and time");
     } else if (comparisonResult > 0) {
         isLive = false;
-        console.log("The target date and time is later than the current date and time");
     } else {
         isLive = true;
-        console.log("The target date and time is the same as the current date and time");
     }
 
 
