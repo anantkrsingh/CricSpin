@@ -103,7 +103,6 @@ app.get("/Series", (req, res) => {
       "MatchId": matchId,
     })
     .then((response) => {
-      // console.log(response.data);
       res.status(200).json(response.data);
     })
     .catch((error) => {
@@ -115,7 +114,6 @@ app.get("/Series", (req, res) => {
 
 app.post("/Players", (req, res) => {
   const matchId = req.query.MatchId;
-  // console.log(matchId);
   axios
     .post("http://cricpro.cricnet.co.in/api/values/GetAllPlayers", {
       "MatchId": matchId,
