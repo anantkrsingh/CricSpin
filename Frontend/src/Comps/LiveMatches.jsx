@@ -11,7 +11,6 @@ export const LiveMatches = ({ match }) => {
     const formattedDate = `${day}-${month}-${year}`;
     let convertedDate ;
     try{
-
          convertedDate = convertDateFormat(match.Matchtime.trim()?.split("at")[0]);
     }catch(e){
         return <div></div>

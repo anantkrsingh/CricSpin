@@ -26,7 +26,6 @@ export default function Home() {
     try {
       const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
       const upcomingData = await upcomingResponse.json();
-      console.log(upcomingData.AllMatch);
       setUpcomingMatches(upcomingData.AllMatch);
 
       const liveResponse = await fetch("https://api.cricspin.live/LiveLine");
