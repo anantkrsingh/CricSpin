@@ -4,6 +4,7 @@ import { FinishedMatch } from '../Comps/FinishedMatch';
 import Logo from '../assets/logo.png';
 
 import { useSearchParams } from 'react-router-dom';
+import { APIURL } from '../CONST';
 
 export const MatchResults = () => {
     const [matches, setMatches] = useState([]);
@@ -15,7 +16,7 @@ export const MatchResults = () => {
     const fetchData = async () => {
 
         try {
-            const upcomingResponse = await fetch("https://api.cricspin.live/MatchResults");
+            const upcomingResponse = await fetch(`${APIURL}MatchResults`);
             const upcomingData = await upcomingResponse.json();
             console.log(upcomingData.AllMatch);
             setMatches(upcomingData.AllMatch);

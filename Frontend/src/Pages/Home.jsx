@@ -10,6 +10,7 @@ import '../App.css'
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Series } from './Series';
+import { APIURL } from '../CONST';
 
 
 export default function Home() {
@@ -24,11 +25,11 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
+      const upcomingResponse = await fetch(`${APIURL}UpcomingMatches`);
       const upcomingData = await upcomingResponse.json();
       setUpcomingMatches(upcomingData.AllMatch);
 
-      const liveResponse = await fetch("https://api.cricspin.live/LiveLine");
+      const liveResponse = await fetch(`${APIURL}LiveLine`);
       const liveData = await liveResponse.json();
       setLiveMatches(liveData);
       setLoading(false);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { MatchOdd } from './MatchOdd';
 import { BottomBanner } from './BottomBanner';
+import { APIURL } from '../CONST';
 
 export const MatchOdds = ({ matchId }) => {
 
@@ -18,7 +19,7 @@ export const MatchOdds = ({ matchId }) => {
     }, []);
     const fetchData = async () => {
         try {
-            const response = await fetch(`https://api.cricspin.live/MatchOdds?MatchId=${matchId}`);
+            const response = await fetch(`${APIURL}MatchOdds?MatchId=${matchId}`);
             const data = await response.json();
             setMatch(data.Matchst);
             setLoading(false);

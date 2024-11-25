@@ -6,6 +6,7 @@ import { FinishedMatches } from '../Comps/FinishedMatches';
 import { PointsTable } from '../Comps/PointsTable'; // Import the PointsTable component
 import { Nav } from '../Comps/Nav';
 import { BottomBanner } from '../Comps/BottomBanner';
+import { APIURL } from '../CONST';
 
 export const SeriesDetails = () => {
   const navigateTo = useNavigate();
@@ -22,7 +23,7 @@ export const SeriesDetails = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://api.cricspin.live/SeriesMatches?seriesId=${id}`);
+      const response = await fetch(`${APIURL}SeriesMatches?seriesId=${id}`);
       const data = await response.json();
       setMatches(data);
       setLoading(false); 

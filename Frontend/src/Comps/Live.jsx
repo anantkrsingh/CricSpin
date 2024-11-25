@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ExpandableBanner } from "./ExpandableBanner";
 import { BottomBanner } from "./BottomBanner";
+import { APIURL } from "../CONST";
 
 export const Live = React.memo(({ matchID }) => {
   const [match, setMatch] = useState(null);
@@ -23,7 +24,7 @@ export const Live = React.memo(({ matchID }) => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://api.cricspin.live/Live/?MatchId=" + matchID,
+        `${APIURL}Live/?MatchId=` + matchID,
         {
           method: "POST",
           headers: {

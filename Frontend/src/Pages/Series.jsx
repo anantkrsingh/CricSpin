@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 import Logo from '../assets/logo.png';
+import { APIURL } from '../CONST';
 
 export const Series = () => {
   const navigateTo = useNavigate();
@@ -11,19 +12,18 @@ export const Series = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch data when the component mounts
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://api.cricspin.live/Series");
+      const response = await fetch(`${APIURL}Series`);
       const data = await response.json();
       setSeries(data);
-      setLoading(false); // Set loading to false once data is fetched
+      setLoading(false); 
     } catch (error) {
       console.error("Error fetching data:", error);
-      setLoading(false); // Set loading to false if there's an error
+      setLoading(false); 
     }
   };
 

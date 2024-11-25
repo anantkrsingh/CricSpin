@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { PointsList } from './PointsList';
+import { APIURL } from '../CONST';
 
 export const PointsTable = ({ seriesId }) => {
   const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ export const PointsTable = ({ seriesId }) => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://api.cricspin.live/Pointstable?seriesId=${seriesId}`);
+      const response = await fetch(`${APIURL}Pointstable?seriesId=${seriesId}`);
       const data = await response.json();
       setData(data.pointsst);
       setLoading(false);

@@ -7,6 +7,7 @@ import { Live } from '../Comps/Live';
 import { Info } from '../Comps/Info';
 import { MatchOdds } from '../Comps/MatchOdds';
 import { Helmet } from 'react-helmet';
+import { APIURL } from '../CONST';
 
 export const MatchResult = () => {
 
@@ -25,7 +26,7 @@ export const MatchResult = () => {
     }, []);
     const fetchData = async () => {
         try {
-            const response = await fetch(`https://api.cricspin.live/Result?MatchId=${matchID}`);
+            const response = await fetch(`${APIURL}Result?MatchId=${matchID}`);
             const data = await response.json();
             const matchId = parseInt(matchID);
             const filteredMatches = data.filter(it => it.MatchId === matchId);

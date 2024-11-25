@@ -3,6 +3,7 @@ import { UpcominMatch } from '../Comps/UpcominMatch';
 import { BsArrowLeft } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo.png';
+import { APIURL } from '../CONST';
 
 
 
@@ -18,7 +19,7 @@ export const Upcoming = () => {
 
     const fetchData = async () => {
         try {
-            const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
+            const upcomingResponse = await fetch(`${APIURL}UpcomingMatches`);
             const upcomingData = await upcomingResponse.json();
             console.log(upcomingData.AllMatch);
             setUpcomingMatches(upcomingData.AllMatch);

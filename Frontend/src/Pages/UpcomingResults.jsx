@@ -11,7 +11,7 @@ import { MatchOdds } from '../Comps/MatchOdds';
 import { MyContext } from '../AppContext';
 import { faBaseball} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IMAGEURL } from '../CONST';
+import { APIURL, IMAGEURL } from '../CONST';
 
 
 
@@ -49,7 +49,7 @@ export const UpcomingResults = () => {
     }, []);
     const fetchData = async () => {
         try {
-            const upcomingResponse = await fetch("https://api.cricspin.live/UpcomingMatches");
+            const upcomingResponse = await fetch(`${APIURL}UpcomingMatches`);
             const upcomingData = await upcomingResponse.json();
             const matchId = parseInt(position);
             console.log(matchId);

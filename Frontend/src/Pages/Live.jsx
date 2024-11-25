@@ -4,6 +4,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { LiveMatches } from '../Comps/LiveMatches';
 import { Helmet } from 'react-helmet';
+import { APIURL } from '../CONST';
 
 
 export const Live = () => {
@@ -18,7 +19,7 @@ export const Live = () => {
 
     const fetchData = async () => {
         try {
-            const upcomingResponse = await fetch("https://api.cricspin.live/LiveLine");
+            const upcomingResponse = await fetch(`${APIURL}LiveLine`);
             const upcomingData = await upcomingResponse.json();
             console.log(upcomingData);
             setUpcomingMatches(upcomingData);

@@ -25,7 +25,7 @@ import { Helmet } from 'react-helmet';
 import CircleOverlay from '../Comps/CircleOverlay';
 import { BottomBanner } from '../Comps/BottomBanner';
 import { logEvent } from 'firebase/analytics';
-import { IMAGEURL } from '../CONST';
+import { APIURL, IMAGEURL } from '../CONST';
 
 export const Results = () => {
   const navigateTo = useNavigate();
@@ -118,7 +118,7 @@ export const Results = () => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://api.cricspin.live/SeriesMatches?seriesId=${seriesId}`);
+      const response = await fetch(`${APIURL}SeriesMatches?seriesId=${seriesId}`);
       const data = await response.json();
       const matchId = parseInt(matchID);
       const filteredMatches = data.filter(it => it.MatchId === matchId);
